@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnBizness Group — Enterprise Transformation for Financial Institutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --navy:#0B1E3A;
+    --steel:#3A6EA5;
+    --cyan:#00C2D1;
+    --offwhite:#F5F3EE;
+    --ink:#14213D;
+    --line:#D8D3C7;
+    --max:1100px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--offwhite);
+    line-height:1.6;
+  }
+
+  h1, h2, h3{
+    font-family:'Source Serif 4', serif;
+    font-weight:500;
+    line-height:1.15;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* clarity line — the recurring signature element: a thin rule that moves
+     from navy to cyan, standing for a clear line drawn through complexity */
+  .clarity-line{
+    height:2px;
+    width:96px;
+    background:linear-gradient(90deg, var(--navy), var(--cyan));
+    border:none;
+  }
+
+  /* header */
+  header{
+    background:var(--navy);
+    padding:20px 0;
+  }
+
+  header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .logo{
+    font-family:'Source Serif 4', serif;
+    font-size:20px;
+    font-weight:600;
+    color:var(--offwhite);
+    letter-spacing:0.02em;
+  }
+
+  nav ul{
+    display:flex;
+    gap:32px;
+    list-style:none;
+  }
+
+  nav a{
+    color:#C7D3E3;
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:0.02em;
+  }
+
+  nav a:hover{ color:var(--cyan); }
+
+  /* hero */
+  .hero{
+    background:var(--navy);
+    padding:96px 0 88px;
+  }
+
+  .hero .wrap{ max-width:780px; }
+
+  .eyebrow{
+    color:var(--cyan);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+
+  .hero h1{
+    color:var(--offwhite);
+    font-size:44px;
+    margin-bottom:22px;
+  }
+
+  .hero .clarity-line{ margin:0 0 26px; }
+
+  .hero p{
+    color:#C7D3E3;
+    font-size:18px;
+    max-width:600px;
+    margin-bottom:36px;
+  }
+
+  .btn{
+    display:inline-block;
+    background:var(--cyan);
+    color:var(--navy);
+    font-weight:600;
+    font-size:15px;
+    padding:14px 28px;
+    border-radius:2px;
+  }
+
+  .btn:hover{ background:#00D9EB; }
+
+  /* credibility bar */
+  .credibility{
+    background:#0E2445;
+    padding:26px 0;
+    border-top:1px solid #1C3355;
+  }
+
+  .credibility .wrap{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+
+  .credibility span.label{
+    color:#8FA3C2;
+    font-size:13px;
+    letter-spacing:0.04em;
+  }
+
+  .credibility .names{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+
+  .credibility .names span{
+    color:var(--offwhite);
+    font-family:'Source Serif 4', serif;
+    font-size:17px;
+  }
+
+  /* section base */
+  section{ padding:88px 0; }
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+
+  .section-head .clarity-line{ margin-bottom:20px; }
+
+  .section-head h2{
+    font-size:30px;
+    margin-bottom:16px;
+    color:var(--navy);
+  }
+
+  .section-head p{
+    color:#4A5568;
+    font-size:16px;
+  }
+
+  /* positioning paragraph */
+  .positioning{ background:var(--offwhite); }
+
+  .positioning .lead{
+    font-family:'Source Serif 4', serif;
+    font-size:22px;
+    color:var(--navy);
+    max-width:760px;
+    line-height:1.5;
+  }
+
+  .positioning .lead strong{ color:var(--steel); font-weight:600; }
+
+  /* services */
+  .services{ background:#EFEBE2; }
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+
+  .service-card{
+    background:var(--offwhite);
+    padding:36px 32px;
+  }
+
+  .service-card .tag{
+    color:var(--steel);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+    display:block;
+  }
+
+  .service-card h3{
+    font-size:19px;
+    color:var(--navy);
+    margin-bottom:12px;
+  }
+
+  .service-card p{
+    color:#4A5568;
+    font-size:14.5px;
+  }
+
+  /* governance strip */
+  .governance{
+    background:var(--navy);
+    padding:56px 0;
+  }
+
+  .governance .wrap{
+    display:flex;
+    align-items:center;
+    gap:32px;
+  }
+
+  .governance .clarity-line{
+    background:linear-gradient(90deg, var(--cyan), var(--steel));
+    flex-shrink:0;
+    width:56px;
+  }
+
+  .governance p{
+    color:#C7D3E3;
+    font-size:16px;
+    max-width:640px;
+  }
+
+  .governance strong{ color:var(--offwhite); }
+
+  /* footer */
+  footer{
+    background:#08172E;
+    padding:48px 0;
+  }
+
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+  footer .logo{ font-size:16px; }
+
+  footer .meta{
+    color:#6E82A3;
+    font-size:13px;
+  }
+
+  /* mobile */
+  @media (max-width:760px){
+    nav ul{ display:none; }
+    .hero h1{ font-size:32px; }
+    .service-grid{ grid-template-columns:1fr; }
+    .governance .wrap{ flex-direction:column; align-items:flex-start; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">OnBizness Group</div>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#">Case Studies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Enterprise transformation for financial institutions</div>
+    <h1>Twenty five years of hands on delivery inside institutions like yours</h1>
+    <hr class="clarity-line">
+    <p>No junior bench, no generic playbooks. Direct experience with the governance, audit, and technology pressure large financial institutions actually face.</p>
+    <a href="#contact" class="btn">Start a conversation</a>
+  </div>
+</section>
+
+<div class="credibility">
+  <div class="wrap">
+    <span class="label">Delivered inside</span>
+    <div class="names">
+      <span>Citi</span>
+      <span>Capital One</span>
+      <span>Fidelity</span>
+    </div>
+  </div>
+</div>
+
+<section class="positioning" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <hr class="clarity-line">
+      <h2>Built on delivery, not theory</h2>
+    </div>
+    <p class="lead">OnBizness Group was founded in 1999 to solve one problem: financial institutions don't need another consulting firm explaining transformation, they need someone who has already delivered it. <strong>Julian</strong> has led enterprise transformation and AI enabled advisory work inside organizations like Citi, Capital One, and Fidelity, and currently serves in a governance and audit oversight role at Tampa Bay Federal Credit Union. That combination, direct delivery experience plus firsthand governance perspective, is what separates OnBizness Group from firms that only advise from the outside.</p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <hr class="clarity-line">
+      <h2>Where we focus</h2>
+      <p>Three connected service areas, anchored in enterprise transformation for financial institutions.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="tag">Anchor service</span>
+        <h3>Enterprise transformation enablement</h3>
+        <p>Portfolio governance, agile operating models, and executive alignment across large scale change programs.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag">Adjacency</span>
+        <h3>Intelligent automation and AI enabled advisory</h3>
+        <p>Practical AI enabled transformation guidance grounded in real delivery, not theoretical frameworks.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag">Adjacency</span>
+        <h3>Agile portfolio governance</h3>
+        <p>Structuring and coaching large agile portfolios so leadership gets clarity, not just velocity metrics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="governance">
+  <div class="wrap">
+    <hr class="clarity-line">
+    <p>Julian also serves on the <strong>Supervisory Committee of Tampa Bay Federal Credit Union</strong>, bringing a governance and audit perspective most consultants only ever see from the outside.</p>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <hr class="clarity-line">
+      <h2>Start a conversation</h2>
+      <p>Reach out to talk through where your institution stands today and where OnBizness Group can help.</p>
+    </div>
+    <a href="mailto:julian@onbizzinessgroup.com" class="btn">Email Julian</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo" style="color:#C7D3E3;">OnBizness Group</div>
+    <div class="meta">Founded 1999 &middot; Odessa, Florida</div>
+  </div>
+</footer>
+
+</body>
+</html>
