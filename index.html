@@ -3,392 +3,584 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnBizness Group — Enterprise Transformation for Financial Institutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>OnBizness Group — Turning Vision Into Reality Through Structured and Transparent Execution</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root{
-    --navy:#0B1E3A;
-    --steel:#3A6EA5;
-    --cyan:#00C2D1;
-    --offwhite:#F5F3EE;
-    --ink:#14213D;
-    --line:#D8D3C7;
-    --max:1100px;
+  :root {
+    --navy:     #0B1F3A;
+    --navy-mid: #122847;
+    --steel:    #2A5F8F;
+    --cyan:     #00C2D4;
+    --cyan-dim: #00A3B3;
+    --offwhite: #F4F6F9;
+    --white:    #FFFFFF;
+    --muted:    #8A9BB0;
+    --border:   rgba(255,255,255,0.08);
+    --font-display: 'DM Serif Display', serif;
+    --font-body:    'Inter', sans-serif;
   }
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior: smooth; }
 
-  html{ scroll-behavior:smooth; }
-
-  body{
-    font-family:'Inter', sans-serif;
-    color:var(--ink);
-    background:var(--offwhite);
-    line-height:1.6;
+  body {
+    font-family: var(--font-body);
+    background: var(--offwhite);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.7;
   }
 
-  h1, h2, h3{
-    font-family:'Source Serif 4', serif;
-    font-weight:500;
-    line-height:1.15;
+  /* NAV */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .logo span { color: var(--cyan); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--cyan);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+  }
+  .nav-cta:hover { background: var(--cyan-dim); color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 6rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,194,212,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0,194,212,0.3);
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    line-height: 1.15;
+    color: var(--white);
+    max-width: 720px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--cyan);
+  }
+  .hero-sub {
+    font-size: 1.125rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+  .hero-sub strong { color: var(--white); font-weight: 500; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--cyan);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--cyan-dim); }
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-num span { color: var(--cyan); }
+  .stat-label {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
   }
 
-  a{ color:inherit; text-decoration:none; }
-
-  .wrap{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:0 32px;
+  /* SECTION BASE */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  .section-body {
+    font-size: 1.0625rem;
+    color: #3D5166;
+    max-width: 640px;
+    line-height: 1.8;
   }
 
-  /* clarity line — the recurring signature element: a thin rule that moves
-     from navy to cyan, standing for a clear line drawn through complexity */
-  .clarity-line{
-    height:2px;
-    width:96px;
-    background:linear-gradient(90deg, var(--navy), var(--cyan));
-    border:none;
+  /* VALUE PROP */
+  .value-prop { background: var(--white); }
+  .vp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .vp-callout {
+    background: var(--navy);
+    color: var(--white);
+    padding: 2.5rem;
+    border-radius: 6px;
+    position: relative;
+  }
+  .vp-callout::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--cyan);
+    border-radius: 6px 0 0 6px;
+  }
+  .vp-callout p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.25rem;
+  }
+  .vp-callout p:last-child { margin-bottom: 0; }
+  .vp-callout strong {
+    color: var(--cyan);
+    font-weight: 500;
+  }
+  .vp-aside p {
+    font-size: 1.0625rem;
+    color: #3D5166;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .vp-aside p:last-child { margin-bottom: 0; }
+  .deck-line {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--navy);
+    border-left: 3px solid var(--cyan);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    line-height: 1.4;
   }
 
-  /* header */
-  header{
-    background:var(--navy);
-    padding:20px 0;
+  /* SERVICES */
+  .services { background: var(--offwhite); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid #DDE3EC;
+    border-radius: 6px;
+    padding: 2rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 4px 20px rgba(0,194,212,0.08);
+  }
+  .service-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(0,194,212,0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .service-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .service-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.625rem;
+    line-height: 1.3;
+  }
+  .service-card p {
+    font-size: 0.9rem;
+    color: #5A6E83;
+    line-height: 1.7;
   }
 
-  header .wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  /* CREDIBILITY */
+  .credibility { background: var(--navy); color: var(--white); }
+  .credibility .section-title { color: var(--white); }
+  .credibility .section-label { color: var(--cyan); }
+  .cred-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .cred-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2rem;
+  }
+  .cred-card h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.875rem;
+  }
+  .cred-card p {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.75;
+  }
+  .cred-full {
+    grid-column: 1 / -1;
   }
 
-  .logo{
-    font-family:'Source Serif 4', serif;
-    font-size:20px;
-    font-weight:600;
-    color:var(--offwhite);
-    letter-spacing:0.02em;
+  /* DIFFERENTIATORS */
+  .differentiators { background: var(--white); }
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .diff-item {
+    border-top: 2px solid var(--cyan);
+    padding-top: 1.5rem;
+  }
+  .diff-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: rgba(0,194,212,0.2);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .diff-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+  .diff-item p {
+    font-size: 0.9rem;
+    color: #5A6E83;
+    line-height: 1.75;
   }
 
-  nav ul{
-    display:flex;
-    gap:32px;
-    list-style:none;
+  /* CTA */
+  .cta-section {
+    background: var(--steel);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .cta-section .section-title { color: var(--white); margin-bottom: 1rem; }
+  .cta-section p {
+    color: rgba(255,255,255,0.78);
+    font-size: 1.0625rem;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
   }
 
-  nav a{
-    color:#C7D3E3;
-    font-size:14px;
-    font-weight:500;
-    letter-spacing:0.02em;
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: var(--muted);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8125rem;
+    border-top: 1px solid var(--border);
   }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--cyan); }
 
-  nav a:hover{ color:var(--cyan); }
-
-  /* hero */
-  .hero{
-    background:var(--navy);
-    padding:96px 0 88px;
+  @media (max-width: 768px) {
+    .vp-grid, .cred-grid, .diff-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 1.5rem; }
+    .nav-links { display: none; }
+    .cred-full { grid-column: 1; }
   }
-
-  .hero .wrap{ max-width:780px; }
-
-  .eyebrow{
-    color:var(--cyan);
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    margin-bottom:20px;
-  }
-
-  .hero h1{
-    color:var(--offwhite);
-    font-size:44px;
-    margin-bottom:22px;
-  }
-
-  .hero .clarity-line{ margin:0 0 26px; }
-
-  .hero p{
-    color:#C7D3E3;
-    font-size:18px;
-    max-width:600px;
-    margin-bottom:36px;
-  }
-
-  .btn{
-    display:inline-block;
-    background:var(--cyan);
-    color:var(--navy);
-    font-weight:600;
-    font-size:15px;
-    padding:14px 28px;
-    border-radius:2px;
-  }
-
-  .btn:hover{ background:#00D9EB; }
-
-  /* credibility bar */
-  .credibility{
-    background:#0E2445;
-    padding:26px 0;
-    border-top:1px solid #1C3355;
-  }
-
-  .credibility .wrap{
-    display:flex;
-    align-items:center;
-    gap:28px;
-    flex-wrap:wrap;
-  }
-
-  .credibility span.label{
-    color:#8FA3C2;
-    font-size:13px;
-    letter-spacing:0.04em;
-  }
-
-  .credibility .names{
-    display:flex;
-    gap:28px;
-    flex-wrap:wrap;
-  }
-
-  .credibility .names span{
-    color:var(--offwhite);
-    font-family:'Source Serif 4', serif;
-    font-size:17px;
-  }
-
-  /* section base */
-  section{ padding:88px 0; }
-
-  .section-head{
-    max-width:640px;
-    margin-bottom:48px;
-  }
-
-  .section-head .clarity-line{ margin-bottom:20px; }
-
-  .section-head h2{
-    font-size:30px;
-    margin-bottom:16px;
-    color:var(--navy);
-  }
-
-  .section-head p{
-    color:#4A5568;
-    font-size:16px;
-  }
-
-  /* positioning paragraph */
-  .positioning{ background:var(--offwhite); }
-
-  .positioning .lead{
-    font-family:'Source Serif 4', serif;
-    font-size:22px;
-    color:var(--navy);
-    max-width:760px;
-    line-height:1.5;
-  }
-
-  .positioning .lead strong{ color:var(--steel); font-weight:600; }
-
-  /* services */
-  .services{ background:#EFEBE2; }
-
-  .service-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-  }
-
-  .service-card{
-    background:var(--offwhite);
-    padding:36px 32px;
-  }
-
-  .service-card .tag{
-    color:var(--steel);
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    margin-bottom:14px;
-    display:block;
-  }
-
-  .service-card h3{
-    font-size:19px;
-    color:var(--navy);
-    margin-bottom:12px;
-  }
-
-  .service-card p{
-    color:#4A5568;
-    font-size:14.5px;
-  }
-
-  /* governance strip */
-  .governance{
-    background:var(--navy);
-    padding:56px 0;
-  }
-
-  .governance .wrap{
-    display:flex;
-    align-items:center;
-    gap:32px;
-  }
-
-  .governance .clarity-line{
-    background:linear-gradient(90deg, var(--cyan), var(--steel));
-    flex-shrink:0;
-    width:56px;
-  }
-
-  .governance p{
-    color:#C7D3E3;
-    font-size:16px;
-    max-width:640px;
-  }
-
-  .governance strong{ color:var(--offwhite); }
-
-  /* footer */
-  footer{
-    background:#08172E;
-    padding:48px 0;
-  }
-
-  footer .wrap{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:16px;
-  }
-
-  footer .logo{ font-size:16px; }
-
-  footer .meta{
-    color:#6E82A3;
-    font-size:13px;
-  }
-
-  /* mobile */
-  @media (max-width:760px){
-    nav ul{ display:none; }
-    .hero h1{ font-size:32px; }
-    .service-grid{ grid-template-columns:1fr; }
-    .governance .wrap{ flex-direction:column; align-items:flex-start; }
-  }
-
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <a href="#" class="logo"><img src="logo.png" alt="OnBizness Group" height="34"></a>
-    <nav>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#">Case Studies</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">OnBizness <span>Group</span></a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Case Studies</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
   </div>
-</header>
+</nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Enterprise transformation for financial institutions</div>
-    <h1>Twenty five years of hands on delivery inside institutions like yours</h1>
-    <hr class="clarity-line">
-    <p>No junior bench, no generic playbooks. Direct experience with the governance, audit, and technology pressure large financial institutions actually face.</p>
-    <a href="#contact" class="btn">Start a conversation</a>
-  </div>
-</section>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Enterprise Strategy Execution</div>
+    <h1>Turning Vision Into Reality Through <em>Structured and Transparent Execution</em></h1>
+    <p class="hero-sub">
+      For more than 25 years, OnBizness Group has helped organizations turn strategy into structured, measurable execution. Our engagements are led by senior professionals with the field-tested expertise to work with your leadership and your delivery teams in equal measure.
+    </p>
+    <a href="#contact" class="btn-primary">Get in Touch</a>
 
-<div class="credibility">
-  <div class="wrap">
-    <span class="label">Delivered inside</span>
-    <div class="names">
-      <span>Citi</span>
-      <span>Capital One</span>
-      <span>Fidelity</span>
-    </div>
-  </div>
-</div>
-
-<section class="positioning" id="about">
-  <div class="wrap">
-    <div class="section-head">
-      <hr class="clarity-line">
-      <h2>Built on delivery, not theory</h2>
-    </div>
-    <p class="lead">OnBizness Group was founded in 1999 to solve one problem: financial institutions don't need another consulting firm explaining transformation, they need someone who has already delivered it. <strong>Julian</strong> has led enterprise transformation and AI enabled advisory work inside organizations like Citi, Capital One, and Fidelity, and currently serves in a governance and audit oversight role at Tampa Bay Federal Credit Union. That combination, direct delivery experience plus firsthand governance perspective, is what separates OnBizness Group from firms that only advise from the outside.</p>
-  </div>
-</section>
-
-<section class="services" id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <hr class="clarity-line">
-      <h2>Where we focus</h2>
-      <p>Three connected service areas, anchored in enterprise transformation for financial institutions.</p>
-    </div>
-    <div class="service-grid">
-      <div class="service-card">
-        <span class="tag">Anchor service</span>
-        <h3>Enterprise transformation enablement</h3>
-        <p>Portfolio governance, agile operating models, and executive alignment across large scale change programs.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">25<span>+</span></div>
+        <div class="stat-label">Years in operation</div>
       </div>
-      <div class="service-card">
-        <span class="tag">Adjacency</span>
-        <h3>Intelligent automation and AI enabled advisory</h3>
-        <p>Practical AI enabled transformation guidance grounded in real delivery, not theoretical frameworks.</p>
+      <div class="stat-item">
+        <div class="stat-num">600<span>+</span></div>
+        <div class="stat-label">Agile teams enabled</div>
       </div>
-      <div class="service-card">
-        <span class="tag">Adjacency</span>
-        <h3>Agile portfolio governance</h3>
-        <p>Structuring and coaching large agile portfolios so leadership gets clarity, not just velocity metrics.</p>
+      <div class="stat-item">
+        <div class="stat-num">$45<span>M</span></div>
+        <div class="stat-label">In documented cost savings</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20<span>+</span></div>
+        <div class="stat-label">Countries delivered</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="governance">
-  <div class="wrap">
-    <hr class="clarity-line">
-    <p>Julian also serves on the <strong>Supervisory Committee of Tampa Bay Federal Credit Union</strong>, bringing a governance and audit perspective most consultants only ever see from the outside.</p>
-  </div>
-</div>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="section-head">
-      <hr class="clarity-line">
-      <h2>Start a conversation</h2>
-      <p>Reach out to talk through where your institution stands today and where OnBizness Group can help.</p>
+<!-- VALUE PROP -->
+<section class="value-prop">
+  <div class="section-inner">
+    <div class="section-label">Why OnBizness Group</div>
+    <h2 class="section-title">The gap between strategy and delivery is where transformation dies.</h2>
+    <div class="vp-grid">
+      <div class="vp-callout">
+        <p>Most transformation stalls in the same place: <strong>leadership sets direction, teams execute in silos, and nobody owns the thread connecting the two.</strong></p>
+        <p>OnBizness Group exists to close that gap — working directly with executives and transformation leaders who feel this disconnect building, quietly, over months, often without a clear owner accountable for bridging it.</p>
+        <p>We bring strategy and execution together so leadership can finally see the line from decision to delivery.</p>
+      </div>
+      <div class="vp-aside">
+        <span class="deck-line">This is not advice from a slide deck.</span>
+        <p>The person who scopes the engagement is the person doing the work — assessing the current state, aligning teams around shared priorities, and building the governance or automation needed to make it stick.</p>
+        <p>That means you get senior judgment at every stage of the engagement, not a partner who sells and a team of associates who deliver.</p>
+      </div>
     </div>
-    <a href="mailto:julian@onbizzinessgroup.com" class="btn">Email Julian</a>
   </div>
 </section>
 
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-inner">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">A complete transformation practice, senior led start to finish.</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Enterprise Transformation Enablement</h3>
+        <p>Bridging strategy and execution across complex organizations so transformation initiatives actually reach delivery.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>Intelligent Automation &amp; AI-Enabled Advisory</h3>
+        <p>Practical automation and AI adoption guidance grounded in real process knowledge, not theoretical frameworks.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>Agile Portfolio Governance</h3>
+        <p>Structure and visibility across dozens of teams and portfolios so leadership stops flying blind on their most important programs.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </div>
+        <h3>Strategic Portfolio Management</h3>
+        <p>Prioritization and alignment so leadership can see, and control, where investment and effort actually go.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Business Process Improvement</h3>
+        <p>Deep process analysis that identifies where time, labor, and budget are being lost. We determine what needs to change and build a clear path to fix it.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Project &amp; Program Management</h3>
+        <p>Senior-led delivery oversight for the initiatives that matter most, with direct accountability, not delegated management.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="credibility">
+  <div class="section-inner">
+    <div class="section-label">Our Background</div>
+    <h2 class="section-title">25 years of enterprise delivery. Built, not borrowed.</h2>
+    <div class="cred-grid">
+      <div class="cred-card">
+        <h3>Founded 1999</h3>
+        <p>OnBizness Group has operated continuously since 1999. Before founding the firm, our background includes senior leadership roles at IBM and KPMG, building international consulting practices across nearly 20 countries and delivering enterprise implementations at global scale.</p>
+      </div>
+      <div class="cred-card">
+        <h3>Mission-Critical Operations</h3>
+        <p>Our background includes nearly a decade leading mission-critical service delivery operations where accuracy, quality, and on-time performance were non-negotiable — the kind of environment where failure has immediate and measurable financial consequences.</p>
+      </div>
+      <div class="cred-card cred-full">
+        <h3>Financial Institution Experience</h3>
+        <p>We have been embedded in large-scale transformation efforts at major financial institutions — including engagements spanning hundreds of agile teams, thousands of active work items, and enterprise automation programs with documented improvements in quality, cycle time, and cost. That experience extends beyond financial services, into consumer packaged goods, market research, and software development, giving OnBizness Group a breadth of perspective that narrowly focused firms simply don't have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="differentiators">
+  <div class="section-inner">
+    <div class="section-label">What Makes Us Different</div>
+    <h2 class="section-title">Three things most consulting firms can't say.</h2>
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="diff-num">01</div>
+        <h3>Hands-on builder and C-suite advisor</h3>
+        <p>OnBizness Group has written production code, built commercial software products, executed SQL queries against enterprise data platforms, and delivered executive briefings to CTOs and COOs at major financial institutions, often in the same engagement. Most strategy consultants can do one. Few can do both.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">02</div>
+        <h3>Senior led, start to finish</h3>
+        <p>The person who scopes your engagement is the person delivering it. No staffing down to a bench of junior consultants partway through the work. What you see in the first conversation is what you get throughout the engagement.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">03</div>
+        <h3>Breadth without shallowness</h3>
+        <p>25 years of continuous experience across financial services, technology, consumer goods, and more means OnBizness Group brings pattern recognition from outside your industry. We do not apply a single vertical playbook everywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">Let's talk about where the gap is.</h2>
+    <p>Every transformation stalls somewhere between strategy and execution. If you're not sure exactly where yours is, that's a good place to start the conversation.</p>
+    <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <div class="logo"><img src="logo.png" alt="OnBizness Group" height="28"></div>
-    <div class="meta">Founded 1999 &middot; Odessa, Florida</div>
-  </div>
+  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem;">Senior Led. Hands On. Enterprise Ready.</p>
 </footer>
 
 </body>
