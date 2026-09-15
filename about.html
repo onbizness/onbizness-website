@@ -7,461 +7,119 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy:     #0B1F3A;
-    --navy-mid: #122847;
-    --steel:    #2A5F8F;
-    --cyan:     #00AEEF;
-    --cyan-dim: #0099D4;
-    --offwhite: #F4F6F9;
-    --white:    #FFFFFF;
-    --muted:    #8A9BB0;
-    --border:   rgba(255,255,255,0.08);
-    --font-display: 'DM Serif Display', serif;
-    --font-body:    'Inter', sans-serif;
+    --navy: #0B1F3A; --navy-mid: #122847; --steel: #2A5F8F;
+    --cyan: #00AEEF; --cyan-dim: #0099D4; --offwhite: #F4F6F9;
+    --white: #FFFFFF; --muted: #8A9BB0; --border: rgba(255,255,255,0.08);
+    --font-display: 'DM Serif Display', serif; --font-body: 'Inter', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--offwhite); color: var(--navy); font-size: 16px; line-height: 1.7; }
 
-  body {
-    font-family: var(--font-body);
-    background: var(--offwhite);
-    color: var(--navy);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  /* NAV */
-  nav {
-    background: var(--navy);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
+  nav { background: var(--navy); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .logo img { height: 38px; width: auto; display: block; }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
   .nav-links a.active { color: var(--white); }
-  .nav-cta {
-    background: var(--cyan);
-    color: var(--navy) !important;
-    padding: 0.5rem 1.25rem;
-    border-radius: 4px;
-    font-weight: 600 !important;
-  }
+  .nav-cta { background: var(--cyan); color: var(--navy) !important; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600 !important; }
   .nav-cta:hover { background: var(--cyan-dim); }
 
-  /* PAGE HEADER */
-  .page-header {
-    background: var(--navy);
-    padding: 4rem 2rem 3.5rem;
-    color: var(--white);
-  }
-  .page-header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .page-eyebrow {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    border: 1px solid rgba(0,174,239,0.3);
-    padding: 0.35rem 0.85rem;
-    border-radius: 2px;
-    margin-bottom: 1.25rem;
-  }
-  .page-header h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.15;
-    color: var(--white);
-    max-width: 680px;
-    margin-bottom: 1rem;
-  }
-  .page-header p {
-    font-size: 1.0625rem;
-    color: var(--muted);
-    max-width: 580px;
-    line-height: 1.75;
-  }
+  .page-header { background: var(--navy); padding: 4rem 2rem 3.5rem; }
+  .page-header-inner { max-width: 1100px; margin: 0 auto; }
+  .page-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(0,174,239,0.3); padding: 0.35rem 0.85rem; border-radius: 2px; margin-bottom: 1.25rem; }
+  .page-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; color: var(--white); max-width: 720px; margin-bottom: 1rem; }
+  .page-header p { font-size: 1.0625rem; color: var(--muted); max-width: 600px; line-height: 1.75; }
 
-  /* FOUNDER SECTION */
-  .founder-section {
-    background: var(--white);
-    padding: 5rem 2rem;
-  }
-  .founder-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.75fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .founder-left {}
-  .founder-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--steel);
-    margin-bottom: 1rem;
-  }
-  .founder-name {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
-  .founder-title {
-    font-size: 0.9375rem;
-    color: var(--muted);
-    margin-bottom: 2rem;
-  }
-  .cert-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
-  .cert-item {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    font-size: 0.875rem;
-    color: #3D5166;
-  }
-  .cert-item::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--cyan);
-    flex-shrink: 0;
-  }
-  .languages-badge {
-    display: inline-block;
-    background: rgba(0,174,239,0.1);
-    color: var(--steel);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    border: 1px solid rgba(0,174,239,0.2);
-  }
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); margin-bottom: 1rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.5rem; }
 
-  .founder-right {}
-  .founder-right p {
-    font-size: 1.0625rem;
-    color: #3D5166;
-    line-height: 1.85;
-    margin-bottom: 1.25rem;
-  }
+  /* FIRM STORY */
+  .story-section { background: var(--white); }
+  .story-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; margin-top: 2.5rem; }
+  .story-left p { font-size: 1.0625rem; color: #3D5166; line-height: 1.85; margin-bottom: 1.25rem; }
+  .story-left p:last-child { margin-bottom: 0; }
+  .story-right { display: flex; flex-direction: column; gap: 1rem; }
+  .story-stat { background: var(--offwhite); border-radius: 6px; padding: 1.5rem; border-left: 3px solid var(--cyan); display: flex; align-items: center; gap: 1.25rem; }
+  .story-stat-num { font-family: var(--font-display); font-size: 1.875rem; color: var(--navy); line-height: 1; white-space: nowrap; }
+  .story-stat-num span { color: var(--cyan); }
+  .story-stat-label { font-size: 0.875rem; color: #5A6E83; line-height: 1.5; }
+
+  /* HOW WE ENGAGE */
+  .engage-section { background: var(--offwhite); }
+  .engage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .engage-card { background: var(--white); border: 1px solid #DDE3EC; border-radius: 6px; padding: 2rem; }
+  .engage-icon { width: 40px; height: 40px; background: rgba(0,174,239,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .engage-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .engage-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.3; }
+  .engage-card p { font-size: 0.9rem; color: #5A6E83; line-height: 1.75; }
+
+  /* FOUNDER */
+  .founder-section { background: var(--white); }
+  .founder-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; margin-top: 2.5rem; }
+  .founder-left { background: var(--navy); border-radius: 8px; padding: 2.5rem; }
+  .founder-name { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 0.375rem; }
+  .founder-title { font-size: 0.875rem; color: var(--cyan); font-weight: 500; margin-bottom: 1.75rem; }
+  .founder-details { display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 1.75rem; }
+  .founder-detail { font-size: 0.85rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.625rem; line-height: 1.4; }
+  .founder-detail::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; }
+  .lang-badge { display: inline-block; background: rgba(0,174,239,0.15); color: var(--cyan); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 0.875rem; border-radius: 3px; border: 1px solid rgba(0,174,239,0.3); }
+  .founder-right p { font-size: 1.0625rem; color: #3D5166; line-height: 1.85; margin-bottom: 1.25rem; }
   .founder-right p:last-child { margin-bottom: 0; }
 
-  /* TIMELINE SECTION */
-  .timeline-section {
-    background: var(--offwhite);
-    padding: 5rem 2rem;
-  }
-  .timeline-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--steel);
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 3rem;
-  }
-  .timeline {
-    position: relative;
-    padding-left: 2rem;
-    border-left: 2px solid #DDE3EC;
-  }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    padding-left: 2rem;
-  }
-  .timeline-item:last-child { margin-bottom: 0; }
-  .timeline-dot {
-    position: absolute;
-    left: -2.625rem;
-    top: 0.35rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--cyan);
-    border: 2px solid var(--offwhite);
-  }
-  .timeline-period {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 0.375rem;
-  }
-  .timeline-role {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-    line-height: 1.3;
-  }
-  .timeline-org {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--steel);
-    margin-bottom: 0.75rem;
-  }
-  .timeline-desc {
-    font-size: 0.9375rem;
-    color: #3D5166;
-    line-height: 1.8;
-  }
+  /* CAPABILITIES */
+  .capabilities-section { background: var(--offwhite); }
+  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .cap-card { background: var(--white); border: 1px solid #DDE3EC; border-radius: 6px; padding: 1.75rem; }
+  .cap-card h4 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1rem; }
+  .cap-card ul { list-style: none; padding: 0; }
+  .cap-card ul li { font-size: 0.875rem; color: #3D5166; padding: 0.35rem 0; border-bottom: 1px solid var(--offwhite); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.5; }
+  .cap-card ul li:last-child { border-bottom: none; }
+  .cap-card ul li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); margin-top: 0.5rem; flex-shrink: 0; }
 
-  /* CLIENTS SECTION */
-  .clients-section {
-    background: var(--navy);
-    padding: 5rem 2rem;
-  }
-  .clients-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  /* CLIENTS */
+  .clients-section { background: var(--navy); }
   .clients-section .section-label { color: var(--cyan); }
-  .clients-section .section-title { color: var(--white); margin-bottom: 2.5rem; }
-  .clients-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  .client-card {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1.5rem;
-  }
-  .client-name {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    color: var(--white);
-    margin-bottom: 0.375rem;
-  }
-  .client-sector {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 0.625rem;
-  }
-  .client-desc {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.65;
-  }
+  .clients-section .section-title { color: var(--white); }
+  .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+  .client-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; }
+  .client-name { font-family: var(--font-display); font-size: 1.125rem; color: var(--white); margin-bottom: 0.3rem; }
+  .client-sector { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.625rem; }
+  .client-desc { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
 
-  /* CREDENTIALS SECTION */
-  .credentials-section {
-    background: var(--white);
-    padding: 5rem 2rem;
-  }
-  .credentials-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .cred-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-  .cred-card {
-    background: var(--offwhite);
-    border-radius: 6px;
-    padding: 1.75rem;
-    border: 1px solid #DDE3EC;
-  }
-  .cred-card h4 {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 1rem;
-  }
-  .cred-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  .cred-card ul li {
-    font-size: 0.875rem;
-    color: #3D5166;
-    padding: 0.35rem 0;
-    border-bottom: 1px solid #DDE3EC;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    line-height: 1.5;
-  }
-  .cred-card ul li:last-child { border-bottom: none; }
-  .cred-card ul li::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--cyan);
-    margin-top: 0.5rem;
-    flex-shrink: 0;
-  }
-
-  /* DIVERSITY SECTION */
-  .diversity-section {
-    background: var(--offwhite);
-    padding: 4rem 2rem;
-    border-top: 1px solid #DDE3EC;
-  }
-  .diversity-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .diversity-badge {
-    background: var(--navy);
-    border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
-  }
-  .diversity-badge-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 0.75rem;
-  }
-  .diversity-badge-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    color: var(--white);
-    line-height: 1.3;
-  }
-  .diversity-right h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--navy);
-    margin-bottom: 1rem;
-    line-height: 1.3;
-  }
-  .diversity-right p {
-    font-size: 0.9375rem;
-    color: #3D5166;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
+  /* DIVERSITY */
+  .diversity-section { background: var(--offwhite); padding: 4rem 2rem; border-top: 1px solid #DDE3EC; }
+  .diversity-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
+  .diversity-badge { background: var(--navy); border-radius: 8px; padding: 2rem; text-align: center; }
+  .diversity-badge-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem; }
+  .diversity-badge-title { font-family: var(--font-display); font-size: 1.25rem; color: var(--white); line-height: 1.3; }
+  .diversity-right h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--navy); margin-bottom: 1rem; line-height: 1.3; }
+  .diversity-right p { font-size: 0.9375rem; color: #3D5166; line-height: 1.8; margin-bottom: 1rem; }
   .diversity-right p:last-child { margin-bottom: 0; }
 
-  /* CTA */
-  .cta-section {
-    background: var(--steel);
-    color: var(--white);
-    text-align: center;
-    padding: 5rem 2rem;
-  }
+  .cta-section { background: var(--steel); color: var(--white); text-align: center; padding: 5rem 2rem; }
   .cta-inner { max-width: 1100px; margin: 0 auto; }
-  .cta-section h2 {
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-  .cta-section p {
-    color: rgba(255,255,255,0.78);
-    font-size: 1.0625rem;
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.75;
-  }
-  .btn-primary {
-    display: inline-block;
-    background: var(--cyan);
-    color: var(--navy);
-    font-weight: 600;
-    font-size: 0.9375rem;
-    padding: 0.875rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
+  .cta-section h2 { font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--white); margin-bottom: 1rem; }
+  .cta-section p { color: rgba(255,255,255,0.78); font-size: 1.0625rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.75; }
+  .btn-primary { display: inline-block; background: var(--cyan); color: var(--navy); font-weight: 600; font-size: 0.9375rem; padding: 0.875rem 2rem; border-radius: 4px; text-decoration: none; transition: background 0.2s; }
   .btn-primary:hover { background: var(--cyan-dim); }
 
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    color: var(--muted);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.8125rem;
-    border-top: 1px solid var(--border);
-  }
+  footer { background: var(--navy); color: var(--muted); text-align: center; padding: 2rem; font-size: 0.8125rem; border-top: 1px solid var(--border); }
   footer a { color: var(--muted); text-decoration: none; }
   footer a:hover { color: var(--cyan); }
 
   @media (max-width: 768px) {
-    .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .clients-grid { grid-template-columns: 1fr; }
-    .cred-grid { grid-template-columns: 1fr; }
-    .diversity-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .story-grid, .founder-grid, .diversity-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .engage-grid, .cap-grid, .clients-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
@@ -475,111 +133,147 @@
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
 <section class="page-header">
   <div class="page-header-inner">
     <div class="page-eyebrow">About OnBizness Group</div>
-    <h1>25 years of enterprise consulting. Built on practice, not theory.</h1>
-    <p>OnBizness Group was founded in 1999 after senior roles at two of the world's most respected consulting and technology firms. We have been delivering measurable results for complex organizations ever since.</p>
+    <h1>Built on 25 years of enterprise experience. Structured to deliver without the overhead.</h1>
+    <p>OnBizness Group is a boutique management consulting firm founded in 1999. We combine principal-level leadership with a curated network of senior practitioners to match the right expertise to every engagement.</p>
+  </div>
+</section>
+
+<!-- FIRM STORY -->
+<section class="story-section">
+  <div class="section-inner">
+    <div class="section-label">The Firm</div>
+    <h2 class="section-title">Senior judgment at every stage. The right expertise for every challenge.</h2>
+    <div class="story-grid">
+      <div class="story-left">
+        <p>OnBizness Group was founded on a straightforward premise: organizations dealing with complex transformation challenges deserve senior-level attention throughout the engagement, not just at the point of sale. That premise has guided how the firm works for 25 years.</p>
+        <p>Every engagement is led by a principal consultant who owns the client relationship, sets the strategic direction, and remains directly accountable for outcomes from the first conversation through to delivery. When an engagement calls for additional expertise, the firm draws on a curated network of experienced practitioners, each selected for what the specific work requires, not assigned from a standing bench.</p>
+        <p>The result is a model that gives clients the senior attention of a boutique practice and the right capabilities for the problem at hand, without the overhead of a large firm or the risk of being handed off to a junior team once the engagement is underway.</p>
+      </div>
+      <div class="story-right">
+        <div class="story-stat">
+          <div class="story-stat-num">25<span>+</span></div>
+          <div class="story-stat-label">Years in continuous operation since 1999</div>
+        </div>
+        <div class="story-stat">
+          <div class="story-stat-num">1,300<span>+</span></div>
+          <div class="story-stat-label">Agile teams enabled across major financial institution engagements</div>
+        </div>
+        <div class="story-stat">
+          <div class="story-stat-num">25<span>+</span></div>
+          <div class="story-stat-label">Enterprise portfolios governed across major financial institution engagements</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE ENGAGE -->
+<section class="engage-section">
+  <div class="section-inner">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">The right model for the work. Not a fixed staffing formula.</h2>
+    <div class="engage-grid">
+      <div class="engage-card">
+        <div class="engage-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>Principal-Led Engagements</h3>
+        <p>Every engagement is led by a senior principal with direct accountability for outcomes. The person who scopes the work is the person delivering it. For many engagements this is the right model: focused, efficient, and free of the overhead that comes with larger team structures.</p>
+      </div>
+      <div class="engage-card">
+        <div class="engage-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Specialist Network Engagements</h3>
+        <p>When an engagement requires a broader set of capabilities, OnBizness Group draws on a curated network of senior practitioners. Each specialist is selected for the engagement based on what the work requires. The principal remains the client's single point of accountability throughout.</p>
+      </div>
+      <div class="engage-card">
+        <div class="engage-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Embedded Advisory</h3>
+        <p>For organizations that need sustained strategic support, OnBizness Group operates as an embedded advisor within the client organization. This model suits complex, evolving engagements where senior judgment, institutional knowledge, and trusted relationships matter as much as the work itself.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOUNDER -->
 <section class="founder-section">
-  <div class="founder-inner">
-    <div class="founder-left">
-      <div class="founder-label">Founder and Principal</div>
-      <div class="founder-name">Julian Montealegre</div>
-      <div class="founder-title">PMP, CSM, CSPO, Lean/Six Sigma</div>
-      <div class="cert-list">
-        <div class="cert-item">Project Management Professional (PMP)</div>
-        <div class="cert-item">Certified Scrum Master (CSM)</div>
-        <div class="cert-item">Certified Scrum Product Owner (CSPO)</div>
-        <div class="cert-item">Lean/Six Sigma Black Belt</div>
-        <div class="cert-item">UiPath RPA Certified (Level 1 and 2)</div>
-        <div class="cert-item">Supervisory Committee, Tampa Bay Federal Credit Union</div>
+  <div class="section-inner">
+    <div class="section-label">Principal Leadership</div>
+    <h2 class="section-title">The experience and judgment behind every engagement.</h2>
+    <div class="founder-grid">
+      <div class="founder-left">
+        <div class="founder-name">Julian Montealegre</div>
+        <div class="founder-title">Founder and Managing Principal</div>
+        <div class="founder-details">
+          <div class="founder-detail">Project Management Professional (PMP)</div>
+          <div class="founder-detail">Certified Scrum Master and Product Owner</div>
+          <div class="founder-detail">Lean Six Sigma</div>
+          <div class="founder-detail">UiPath RPA Certified</div>
+          <div class="founder-detail">Supervisory Committee, Tampa Bay Federal Credit Union</div>
+          <div class="founder-detail">B.A. Management Information Systems, University of South Florida</div>
+        </div>
+        <div class="lang-badge">Fluent in English and Spanish</div>
       </div>
-      <div class="languages-badge">Fluent in English and Spanish</div>
-    </div>
-    <div class="founder-right">
-      <p>Julian Montealegre founded OnBizness Group in 1999 following senior roles at KPMG and IBM, where he helped build and scale PeopleSoft consulting practices across international markets. Those years taught him what enterprise consulting looks like at its best — and what it costs organizations when the gap between strategy and execution is left unmanaged.</p>
-      <p>His career began in software development and global implementation at Dun and Bradstreet Software, where he was part of the original development team for an HR and payroll platform that was subsequently implemented across nearly 20 countries spanning Latin America, Europe, Asia, Australia, and New Zealand. That combination of product development origin and international delivery experience shaped how he thinks about enterprise problems — from the inside out.</p>
-      <p>Over 25 years, OnBizness Group has delivered engagements ranging from custom software development and offshore platform innovation in the early years, to enterprise agile transformation, intelligent automation assessments, and embedded advisory work at some of the largest financial institutions in the United States. Through every phase, the approach has remained the same: understand the real problem, work alongside the people responsible for solving it, and leave something behind that keeps generating value.</p>
-      <p>Julian holds a Bachelor of Arts in Management Information Systems from the University of South Florida and maintains active certifications in project management, agile delivery, and process improvement. He serves on the Supervisory Committee at Tampa Bay Federal Credit Union, where he contributes to audit oversight, internal controls review, and regulatory compliance monitoring.</p>
+      <div class="founder-right">
+        <p>Julian Montealegre brings more than 30 years of enterprise experience to every OnBizness Group engagement. His background spans software development, global implementation across nearly 20 countries, practice development at IBM and KPMG, mission-critical operations leadership, and embedded advisory work at major financial institutions. That combination of technical depth, operational rigor, and executive advisory experience shapes how OnBizness Group approaches every client relationship.</p>
+        <p>What distinguishes his approach is the ability to operate at both ends of the engagement. He can sit across the table from a COO or CTO and align on strategy, then work directly with the teams responsible for execution, bridging the gap that most consultants leave unaddressed. That range is not common, and it is what clients consistently rely on.</p>
+        <p>OnBizness Group was founded on the belief that the most valuable thing a consultant can leave behind is not a deliverable. It is a client organization that is measurably more capable, better aligned, and better equipped to sustain progress after the engagement ends. That belief has guided every engagement since 1999.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TIMELINE -->
-<section class="timeline-section">
-  <div class="timeline-inner">
-    <div class="section-label">Career History</div>
-    <h2 class="section-title">A career built across institutions, industries, and continents.</h2>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">1999 — Present</div>
-        <div class="timeline-role">Founder and Principal Consultant</div>
-        <div class="timeline-org">OnBizness Group, Tampa, FL</div>
-        <div class="timeline-desc">Founded after senior roles at KPMG and IBM. OnBizness Group has operated continuously for 25 years, delivering enterprise consulting engagements for clients including Citi, Capital One, Fidelity Investments, PricewaterhouseCoopers, Xpitax, and Masco Corporation.</div>
+<!-- CAPABILITIES -->
+<section class="capabilities-section">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">What the firm brings to each engagement.</h2>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <h4>Certifications and Credentials</h4>
+        <ul>
+          <li>Project Management Professional (PMP)</li>
+          <li>Certified Scrum Master (CSM)</li>
+          <li>Certified Scrum Product Owner (CSPO)</li>
+          <li>Lean Six Sigma</li>
+          <li>UiPath RPA Level 1 and Level 2</li>
+          <li>PeopleSoft Enterprise HCM and Technology</li>
+        </ul>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">2008 — 2017</div>
-        <div class="timeline-role">Global Operations Leader and Service Delivery Executive</div>
-        <div class="timeline-org">The Nielsen Company, Tampa, FL</div>
-        <div class="timeline-desc">Held three successive leadership roles culminating in Global Operations Business Process Improvement Leader, reporting to the COO. Led a global team of 18 Lean/Six Sigma Black Belts across 100 countries, delivering $45 million in cost savings and $34 million in revenue growth. Previously accountable for North America service delivery operations supporting $1.2 billion in annual revenue with zero tolerance for error.</div>
+      <div class="cap-card">
+        <h4>Technologies and Platforms</h4>
+        <ul>
+          <li>Jira Align, Jira, Confluence</li>
+          <li>UiPath, BlueworksLive</li>
+          <li>PostgreSQL, Snowflake, SQL</li>
+          <li>Tableau, Spotfire</li>
+          <li>SAP R/3, PeopleSoft, Oracle</li>
+          <li>Python, Visual Basic, AWS</li>
+        </ul>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">2005 — 2007</div>
-        <div class="timeline-role">Senior Project Manager</div>
-        <div class="timeline-org">Hewitt Associates, Lincolnshire, IL</div>
-        <div class="timeline-desc">Led complex HR platform engagements including legacy payroll migrations, time and labor implementations, and SAP HR deployments for large enterprise clients across multiple industries.</div>
+      <div class="cap-card">
+        <h4>Governance and Oversight</h4>
+        <ul>
+          <li>Supervisory Committee, Tampa Bay Federal Credit Union</li>
+          <li>Audit oversight and internal controls review</li>
+          <li>Regulatory compliance monitoring</li>
+          <li>FMEA and operational risk management</li>
+          <li>Executive and board-level reporting</li>
+        </ul>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">1997 — 1999</div>
-        <div class="timeline-role">Principal</div>
-        <div class="timeline-org">KPMG LLP</div>
-        <div class="timeline-desc">Delivered C-suite advisory and practice development work focused on enterprise technology consulting. Responsible for deployment strategy, resource planning, talent enablement, and client development in support of growing consulting practices across markets.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">1995 — 1997</div>
-        <div class="timeline-role">Director</div>
-        <div class="timeline-org">IBM</div>
-        <div class="timeline-desc">Responsible for building IBM's PeopleSoft professional services practice internationally. Used a major Lucent Technologies implementation as a launchpad to develop practices across global markets. Accountable for consultant training, international liaison between US and global practices, and business development support across the PeopleSoft service line.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">1992 — 1995</div>
-        <div class="timeline-role">Developer and Global Implementation Consultant</div>
-        <div class="timeline-org">Dun and Bradstreet Software</div>
-        <div class="timeline-desc">Started as a developer on the original HR and payroll platform team. Transitioned to professional services when the solution was brought to international markets, implementing across nearly 20 countries in Latin America, Europe, Asia, Australia, and New Zealand.</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">1991 — 1992</div>
-        <div class="timeline-role">Software Developer</div>
-        <div class="timeline-org">ISP (Insurance Software Products)</div>
-        <div class="timeline-desc">Early career role in software development using FoxPro. Built the technical foundation that has informed a hands-on approach to enterprise problem solving throughout a 30-year career.</div>
-      </div>
-
     </div>
   </div>
 </section>
 
 <!-- CLIENTS -->
 <section class="clients-section">
-  <div class="clients-inner">
+  <div class="section-inner">
     <div class="section-label">Client Experience</div>
     <h2 class="section-title" style="color:var(--white);">Organizations we have served.</h2>
     <div class="clients-grid">
@@ -591,7 +285,7 @@
       <div class="client-card">
         <div class="client-name">Capital One</div>
         <div class="client-sector">Financial Services</div>
-        <div class="client-desc">Enterprise portfolio governance and agile transformation across Credit Card and Small Business units. Accountable to the CTO, spanning 25 portfolios and over 600 agile teams.</div>
+        <div class="client-desc">Enterprise portfolio governance and agile transformation across Credit Card and Small Business units. Accountable to the CTO across 25 portfolios and over 600 agile teams.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Citi</div>
@@ -606,54 +300,12 @@
       <div class="client-card">
         <div class="client-name">Xpitax</div>
         <div class="client-sector">Tax Services</div>
-        <div class="client-desc">End-to-end platform development for offshore tax preparation services. Defined vision, gathered requirements, managed development, and delivered a platform now processing over 20,000 returns annually.</div>
+        <div class="client-desc">Designed and delivered the offshore tax preparation platform that helped establish Xpitax as a recognized provider of tax outsourcing services for U.S. accounting firms. The engagement required solving a data privacy challenge that had made offshore tax processing impractical, developing an innovative architecture that protected sensitive taxpayer information while enabling efficient offshore delivery. Xpitax now processes tens of thousands of outsourced tax returns annually.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Masco Corporation</div>
         <div class="client-sector">Manufacturing</div>
-        <div class="client-desc">Program Management Office support for an Oracle Financials implementation at a Fortune 500 manufacturer. Delivered through OnBizness Group in partnership with Kribo Technical.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section class="credentials-section">
-  <div class="credentials-inner">
-    <div class="section-label">Credentials and Capabilities</div>
-    <h2 class="section-title">The certifications, tools, and capabilities behind the work.</h2>
-    <div class="cred-grid">
-      <div class="cred-card">
-        <h4>Certifications</h4>
-        <ul>
-          <li>Project Management Professional (PMP)</li>
-          <li>Certified Scrum Master (CSM)</li>
-          <li>Certified Scrum Product Owner (CSPO)</li>
-          <li>Lean/Six Sigma Black Belt</li>
-          <li>UiPath RPA Level 1 and Level 2</li>
-          <li>PeopleSoft Enterprise HCM and Technology</li>
-        </ul>
-      </div>
-      <div class="cred-card">
-        <h4>Technologies and Platforms</h4>
-        <ul>
-          <li>Jira Align, Jira, Confluence</li>
-          <li>UiPath, BlueworksLive</li>
-          <li>PostgreSQL, Snowflake, SQL</li>
-          <li>Tableau, Spotfire</li>
-          <li>SAP R/3, PeopleSoft, Oracle</li>
-          <li>Python, Visual Basic, AWS</li>
-        </ul>
-      </div>
-      <div class="cred-card">
-        <h4>Governance and Oversight</h4>
-        <ul>
-          <li>Supervisory Committee Member, Tampa Bay Federal Credit Union</li>
-          <li>Audit oversight and internal controls review</li>
-          <li>Regulatory compliance monitoring</li>
-          <li>FMEA and operational risk management</li>
-          <li>Executive and board-level reporting</li>
-        </ul>
+        <div class="client-desc">Program Management Office support for an Oracle Financials implementation at a Fortune 500 manufacturer, delivered in partnership with Kribo Technical.</div>
       </div>
     </div>
   </div>
@@ -683,7 +335,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
   <p style="margin-top:0.5rem; font-size:0.75rem;">Senior Led. Hands On. Enterprise Ready.</p>
