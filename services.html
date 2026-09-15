@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — OnBizness Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #0B1F3A;
+    --navy-mid: #122847;
+    --steel:    #2A5F8F;
+    --cyan:     #00AEEF;
+    --cyan-dim: #0099D4;
+    --offwhite: #F4F6F9;
+    --white:    #FFFFFF;
+    --muted:    #8A9BB0;
+    --border:   rgba(255,255,255,0.08);
+    --font-display: 'DM Serif Display', serif;
+    --font-body:    'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--offwhite);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo img { height: 38px; width: auto; display: block; }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta {
+    background: var(--cyan);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--cyan-dim); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--navy);
+    padding: 4rem 2rem 3.5rem;
+    color: var(--white);
+  }
+  .page-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .page-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    border: 1px solid rgba(0,174,239,0.3);
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+  }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    color: var(--white);
+    max-width: 680px;
+    margin-bottom: 1rem;
+  }
+  .page-header p {
+    font-size: 1.0625rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.75;
+  }
+
+  /* TABS SECTION */
+  .tabs-section {
+    padding: 3rem 2rem 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* TAB NAVIGATION */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #DDE3EC;
+    margin-bottom: 3rem;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--cyan);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+  .tab-btn:hover { color: var(--navy); }
+  .tab-btn.active {
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .tab-btn.active::after { transform: scaleX(1); }
+
+  /* TAB CONTENT */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .service-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .service-left h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .service-left p {
+    font-size: 1rem;
+    color: #3D5166;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+  .service-left p:last-of-type { margin-bottom: 2rem; }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--cyan);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--cyan-dim); }
+
+  /* RIGHT SIDE PANELS */
+  .service-right { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .info-card {
+    background: var(--white);
+    border: 1px solid #DDE3EC;
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .info-card h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.875rem;
+  }
+  .info-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .info-card ul li {
+    font-size: 0.9rem;
+    color: #3D5166;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--offwhite);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    line-height: 1.5;
+  }
+  .info-card ul li:last-child { border-bottom: none; }
+  .info-card ul li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    margin-top: 0.45rem;
+    flex-shrink: 0;
+  }
+  .info-card p {
+    font-size: 0.9rem;
+    color: #3D5166;
+    line-height: 1.75;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--steel);
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+  .cta-inner { max-width: 1100px; margin: 0 auto; }
+  .cta-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .cta-section p {
+    color: rgba(255,255,255,0.78);
+    font-size: 1.0625rem;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: var(--muted);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8125rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--cyan); }
+
+  @media (max-width: 768px) {
+    .service-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .tab-btn { padding: 0.875rem 1rem; font-size: 0.8rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">What We Do</div>
+    <h1>Services built around the problems that actually slow transformation down.</h1>
+    <p>Three focused practice areas, each grounded in hands-on experience at major financial institutions and complex enterprise environments.</p>
+  </div>
+</section>
+
+<!-- TABS -->
+<div class="tabs-section">
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('ete')">Enterprise Transformation Enablement</button>
+    <button class="tab-btn" onclick="showTab('ai')">Intelligent Automation &amp; AI Advisory</button>
+    <button class="tab-btn" onclick="showTab('apg')">Agile Portfolio Governance</button>
+  </div>
+
+  <!-- TAB 1: Enterprise Transformation Enablement -->
+  <div class="tab-panel active" id="tab-ete">
+    <div class="service-layout">
+      <div class="service-left">
+        <h2>Enterprise Transformation Enablement</h2>
+        <p>Most transformation initiatives have clear ambitions and capable teams. What they often lack is the connective tissue between strategic direction and day-to-day execution. Priorities shift without notice, dependencies go unmanaged, and leadership loses visibility into whether the most important work is actually moving forward.</p>
+        <p>We work with organizations to build that connective tissue. That means establishing governance structures that hold, program frameworks that create accountability without bureaucracy, and reporting rhythms that give leadership a clear and honest picture of progress, risk, and decision points.</p>
+        <p>Our work spans the full lifecycle of complex initiatives, from initial program structure and stakeholder alignment through execution oversight, change management, and sustainable delivery. We engage from the outset and when transformation is already underway and needs to be stabilized.</p>
+        <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+      </div>
+      <div class="service-right">
+        <div class="info-card">
+          <h4>Who We Work With</h4>
+          <ul>
+            <li>Chief Operating Officers overseeing enterprise-wide initiatives</li>
+            <li>Chief Information and Technology Officers driving technology transformation</li>
+            <li>Transformation and Program Management Office leaders</li>
+            <li>Senior executives accountable for strategic program delivery</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>What an Engagement Looks Like</h4>
+          <ul>
+            <li>Current state assessment of program structure and governance</li>
+            <li>Design and implementation of program governance frameworks</li>
+            <li>Stakeholder alignment and change management planning</li>
+            <li>Ongoing delivery oversight and executive reporting</li>
+            <li>Risk identification, escalation, and resolution support</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>Outcomes</h4>
+          <ul>
+            <li>Leadership visibility from strategy to team-level execution</li>
+            <li>Reduced delivery risk through proactive governance</li>
+            <li>Faster, more predictable program outcomes</li>
+            <li>Organizational adoption of new ways of working</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Intelligent Automation & AI Advisory -->
+  <div class="tab-panel" id="tab-ai">
+    <div class="service-layout">
+      <div class="service-left">
+        <h2>Intelligent Automation &amp; AI-Enabled Advisory</h2>
+        <p>Most organizations are aware that AI and automation can create value. Fewer know where to start, which use cases are genuinely ready for deployment, and how to build a roadmap that accounts for their operational, regulatory, and governance requirements.</p>
+        <p>We help organizations move beyond AI awareness into practical, accountable deployment. That means understanding how AI models reason, how agents are structured and connected to enterprise systems, and how multi-agent workflows can be orchestrated to automate complex business processes.</p>
+        <p>Our approach starts with a disciplined assessment of your current processes, identifying where manual effort, error rates, and cycle time create the most drag. We then build a prioritized use case roadmap with ROI models and future-state designs that give your leadership a credible, defensible path forward.</p>
+        <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+      </div>
+      <div class="service-right">
+        <div class="info-card">
+          <h4>Who We Work With</h4>
+          <ul>
+            <li>Chief Operating Officers seeking operational efficiency</li>
+            <li>Chief Digital and Innovation Officers evaluating AI strategy</li>
+            <li>Compliance and Operations leaders managing high-volume manual processes</li>
+            <li>Technology leaders responsible for automation platforms</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>What an Engagement Looks Like</h4>
+          <ul>
+            <li>Current state process inventory and labor quantification</li>
+            <li>Automation and AI opportunity identification and prioritization</li>
+            <li>ROI modeling and business case development</li>
+            <li>Future-state process design including exception handling</li>
+            <li>Implementation roadmap with governance and compliance considerations</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>Outcomes</h4>
+          <ul>
+            <li>A prioritized, defensible automation roadmap</li>
+            <li>Quantified savings in labor, cycle time, and error rates</li>
+            <li>AI deployment strategy aligned to regulatory requirements</li>
+            <li>Leadership confidence in AI investment decisions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Agile Portfolio Governance -->
+  <div class="tab-panel" id="tab-apg">
+    <div class="service-layout">
+      <div class="service-left">
+        <h2>Agile Portfolio Governance</h2>
+        <p>Organizations running dozens of agile teams often find that the frameworks meant to increase speed and flexibility create a different problem at scale. Individual teams are productive but portfolio-level visibility breaks down. Leadership cannot reliably see whether the most important initiatives are on track, where dependencies are creating risk, or whether delivery capacity is aligned to strategic priorities.</p>
+        <p>We bring structure and visibility to complex portfolio environments without disrupting the agile practices that teams depend on. That means building governance that connects executive decision-making to team-level execution, establishing measurement frameworks that surface the right information at the right level, and ensuring that portfolio investments are traceable to strategic outcomes.</p>
+        <p>Our methodology adapts to your existing agile framework rather than replacing it. We have applied this approach across portfolios spanning hundreds of teams at major financial institutions, building the alignment and accountability that makes large-scale agile delivery reliable.</p>
+        <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+      </div>
+      <div class="service-right">
+        <div class="info-card">
+          <h4>Who We Work With</h4>
+          <ul>
+            <li>Chief Technology and Information Officers overseeing large delivery organizations</li>
+            <li>Portfolio and Program Management Office leaders</li>
+            <li>Transformation leaders managing enterprise agile adoption</li>
+            <li>Senior leaders accountable for technology investment outcomes</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>What an Engagement Looks Like</h4>
+          <ul>
+            <li>Portfolio and agile maturity assessment</li>
+            <li>Governance framework design aligned to existing agile practices</li>
+            <li>Portfolio visibility and reporting structure implementation</li>
+            <li>Strategic alignment of delivery capacity to priorities</li>
+            <li>Dependency management and risk identification across teams</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>Outcomes</h4>
+          <ul>
+            <li>Executive visibility from strategy to team-level execution</li>
+            <li>Reduced delivery variability across portfolios</li>
+            <li>Stronger alignment between investment and strategic priorities</li>
+            <li>A governance model that scales with the organization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Not sure which service fits your situation?</h2>
+    <p>Most engagements start with a conversation. Tell us what you are trying to solve and we will help you determine where to begin.</p>
+    <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem;">Senior Led. Hands On. Enterprise Ready.</p>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
