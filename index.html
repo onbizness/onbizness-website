@@ -9,399 +9,127 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy:     #0B1F3A;
-    --navy-mid: #122847;
-    --steel:    #2A5F8F;
-    --cyan:     #00C2D4;
-    --cyan-dim: #00A3B3;
-    --offwhite: #F4F6F9;
-    --white:    #FFFFFF;
-    --muted:    #8A9BB0;
-    --border:   rgba(255,255,255,0.08);
-    --font-display: 'DM Serif Display', serif;
-    --font-body:    'Inter', sans-serif;
+    --navy: #0B1F3A; --navy-mid: #122847; --steel: #2A5F8F;
+    --cyan: #00AEEF; --cyan-dim: #0099D4; --offwhite: #F4F6F9;
+    --white: #FFFFFF; --muted: #8A9BB0; --border: rgba(255,255,255,0.08);
+    --font-display: 'DM Serif Display', serif; --font-body: 'Inter', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--offwhite);
-    color: var(--navy);
-    font-size: 16px;
-    line-height: 1.7;
-  }
+  body { font-family: var(--font-body); background: var(--offwhite); color: var(--navy); font-size: 16px; line-height: 1.7; }
 
   /* NAV */
-  nav {
-    background: var(--navy);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
-  .logo {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    color: var(--white);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-  }
-  .logo span { color: var(--cyan); }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); }
-  .nav-links a.active { color: var(--white); }
-  .nav-cta {
-    background: var(--cyan);
-    color: var(--navy) !important;
-    padding: 0.5rem 1.25rem;
-    border-radius: 4px;
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
-  }
-  .nav-cta:hover { background: var(--cyan-dim); color: var(--navy) !important; }
+  nav { background: var(--navy); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo img { height: 36px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--cyan); color: var(--navy) !important; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600 !important; font-size: 0.875rem !important; }
+  .nav-cta:hover { background: var(--cyan-dim); }
+
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE MENU */
+  .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: var(--navy); z-index: 99; flex-direction: column; padding: 2rem 1.5rem; gap: 0; overflow-y: auto; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 1.125rem; font-weight: 500; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: var(--white); }
+  .mobile-menu .mobile-cta { margin-top: 1.5rem; background: var(--cyan); color: var(--navy) !important; text-align: center; padding: 1rem; border-radius: 4px; font-weight: 600; border-bottom: none; }
 
   /* HERO */
-  .hero {
-    background: var(--navy);
-    color: var(--white);
-    padding: 6rem 2rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -120px;
-    right: -80px;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,194,212,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .hero-eyebrow {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(0,194,212,0.3);
-    padding: 0.35rem 0.85rem;
-    border-radius: 2px;
-  }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 3.75rem);
-    line-height: 1.15;
-    color: var(--white);
-    max-width: 720px;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--cyan);
-  }
-  .hero-sub {
-    font-size: 1.125rem;
-    color: var(--muted);
-    max-width: 600px;
-    margin-bottom: 2.5rem;
-    line-height: 1.75;
-  }
-  .hero-sub strong { color: var(--white); font-weight: 500; }
-  .btn-primary {
-    display: inline-block;
-    background: var(--cyan);
-    color: var(--navy);
-    font-weight: 600;
-    font-size: 0.9375rem;
-    padding: 0.875rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: background 0.2s;
-  }
+  .hero { background: var(--navy); color: var(--white); padding: 5rem 1.5rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -120px; right: -80px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(0,174,239,0.07) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.25rem; border: 1px solid rgba(0,174,239,0.3); padding: 0.35rem 0.85rem; border-radius: 2px; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1.15; color: var(--white); max-width: 720px; margin-bottom: 1.25rem; }
+  .hero h1 em { font-style: normal; color: var(--cyan); }
+  .hero-sub { font-size: 1rem; color: var(--muted); max-width: 600px; margin-bottom: 2rem; line-height: 1.75; }
+  .btn-primary { display: inline-block; background: var(--cyan); color: var(--navy); font-weight: 600; font-size: 0.9375rem; padding: 0.875rem 2rem; border-radius: 4px; text-decoration: none; transition: background 0.2s; }
   .btn-primary:hover { background: var(--cyan-dim); }
-  .hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border);
-  }
-  .stat-item {}
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .stat-num { font-family: var(--font-display); font-size: 2rem; color: var(--white); line-height: 1; margin-bottom: 0.25rem; }
   .stat-num span { color: var(--cyan); }
-  .stat-label {
-    font-size: 0.8125rem;
-    color: var(--muted);
-    letter-spacing: 0.02em;
-  }
+  .stat-label { font-size: 0.8125rem; color: var(--muted); }
 
-  /* SECTION BASE */
-  section { padding: 5rem 2rem; }
+  /* SECTIONS */
+  section { padding: 4rem 1.5rem; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--steel);
-    margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
-  }
-  .section-body {
-    font-size: 1.0625rem;
-    color: #3D5166;
-    max-width: 640px;
-    line-height: 1.8;
-  }
+  .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); margin-bottom: 1rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.25rem; }
 
   /* VALUE PROP */
   .value-prop { background: var(--white); }
-  .vp-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    margin-top: 3rem;
-  }
-  .vp-callout {
-    background: var(--navy);
-    color: var(--white);
-    padding: 2.5rem;
-    border-radius: 6px;
-    position: relative;
-  }
-  .vp-callout::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--cyan);
-    border-radius: 6px 0 0 6px;
-  }
-  .vp-callout p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 1.25rem;
-  }
+  .vp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2.5rem; }
+  .vp-callout { background: var(--navy); color: var(--white); padding: 2rem; border-radius: 6px; position: relative; }
+  .vp-callout::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--cyan); border-radius: 6px 0 0 6px; }
+  .vp-callout p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
   .vp-callout p:last-child { margin-bottom: 0; }
-  .vp-callout strong {
-    color: var(--cyan);
-    font-weight: 500;
-  }
-  .vp-aside p {
-    font-size: 1.0625rem;
-    color: #3D5166;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
+  .vp-aside p { font-size: 1rem; color: #3D5166; line-height: 1.8; margin-bottom: 1rem; }
   .vp-aside p:last-child { margin-bottom: 0; }
-  .deck-line {
-    display: block;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--navy);
-    border-left: 3px solid var(--cyan);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    line-height: 1.4;
-  }
+  .deck-line { display: block; font-size: 1.0625rem; font-weight: 600; color: var(--navy); border-left: 3px solid var(--cyan); padding-left: 1rem; margin: 1.25rem 0; line-height: 1.4; }
 
   /* SERVICES */
   .services { background: var(--offwhite); }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .service-card {
-    background: var(--white);
-    border: 1px solid #DDE3EC;
-    border-radius: 6px;
-    padding: 2rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .service-card:hover {
-    border-color: var(--cyan);
-    box-shadow: 0 4px 20px rgba(0,194,212,0.08);
-  }
-  .service-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(0,194,212,0.1);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-  }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .service-card { background: var(--white); border: 1px solid #DDE3EC; border-radius: 6px; padding: 1.75rem; transition: border-color 0.2s, box-shadow 0.2s; }
+  .service-card:hover { border-color: var(--cyan); box-shadow: 0 4px 20px rgba(0,174,239,0.08); }
+  .service-icon { width: 40px; height: 40px; background: rgba(0,174,239,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
   .service-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-  .service-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.625rem;
-    line-height: 1.3;
-  }
-  .service-card p {
-    font-size: 0.9rem;
-    color: #5A6E83;
-    line-height: 1.7;
-  }
+  .service-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.625rem; line-height: 1.3; }
+  .service-card p { font-size: 0.875rem; color: #5A6E83; line-height: 1.7; }
 
   /* CREDIBILITY */
   .credibility { background: var(--navy); color: var(--white); }
   .credibility .section-title { color: var(--white); }
   .credibility .section-label { color: var(--cyan); }
-  .cred-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .cred-card {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 2rem;
-  }
-  .cred-card h3 {
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: 0.875rem;
-  }
-  .cred-card p {
-    font-size: 0.9375rem;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.75;
-  }
-  .cred-full {
-    grid-column: 1 / -1;
-  }
+  .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .cred-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 6px; padding: 1.75rem; }
+  .cred-card h3 { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem; }
+  .cred-card p { font-size: 0.9rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
+  .cred-full { grid-column: 1 / -1; }
 
   /* DIFFERENTIATORS */
   .differentiators { background: var(--white); }
-  .diff-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .diff-item {
-    border-top: 2px solid var(--cyan);
-    padding-top: 1.5rem;
-  }
-  .diff-num {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: rgba(0,194,212,0.2);
-    line-height: 1;
-    margin-bottom: 0.75rem;
-  }
-  .diff-item h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.75rem;
-    line-height: 1.35;
-  }
-  .diff-item p {
-    font-size: 0.9rem;
-    color: #5A6E83;
-    line-height: 1.75;
-  }
+  .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.5rem; }
+  .diff-item { border-top: 2px solid var(--cyan); padding-top: 1.5rem; }
+  .diff-num { font-family: var(--font-display); font-size: 2.5rem; color: rgba(0,174,239,0.2); line-height: 1; margin-bottom: 0.75rem; }
+  .diff-item h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.35; }
+  .diff-item p { font-size: 0.875rem; color: #5A6E83; line-height: 1.75; }
 
   /* CTA */
-  .cta-section {
-    background: var(--steel);
-    color: var(--white);
-    text-align: center;
-    padding: 5rem 2rem;
-  }
+  .cta-section { background: var(--steel); color: var(--white); text-align: center; padding: 4rem 1.5rem; }
   .cta-section .section-title { color: var(--white); margin-bottom: 1rem; }
-  .cta-section p {
-    color: rgba(255,255,255,0.78);
-    font-size: 1.0625rem;
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.75;
-  }
+  .cta-section p { color: rgba(255,255,255,0.78); font-size: 1rem; max-width: 520px; margin: 0 auto 2rem; line-height: 1.75; }
 
   /* FOOTER */
-  footer {
-    background: var(--navy);
-    color: var(--muted);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.8125rem;
-    border-top: 1px solid var(--border);
-  }
+  footer { background: var(--navy); color: var(--muted); text-align: center; padding: 2rem 1.5rem; font-size: 0.8125rem; border-top: 1px solid var(--border); }
   footer a { color: var(--muted); text-decoration: none; }
   footer a:hover { color: var(--cyan); }
 
+  /* MOBILE */
   @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
     .vp-grid, .cred-grid, .diff-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
-    .hero-stats { flex-direction: column; gap: 1.5rem; }
-    .nav-links { display: none; }
+    .hero-stats { gap: 1.5rem; }
     .cred-full { grid-column: 1; }
+    section { padding: 3rem 1.25rem; }
+    .hero { padding: 3rem 1.25rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo"><img src="logo.png" alt="OnBizness Group" style="height: 38px; width: auto; display: block;"></a>
+    <a href="index.html" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -409,19 +137,26 @@
       <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- HERO -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="active">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="#contact" class="mobile-cta" onclick="toggleMenu()">Get in Touch</a>
+</div>
+
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Enterprise Strategy Execution</div>
     <h1>Turning Vision Into Reality Through <em>Structured and Transparent Execution</em></h1>
-    <p class="hero-sub">
-      For more than 25 years, OnBizness Group has helped organizations turn strategy into structured, measurable execution. Our engagements are led by senior professionals with the field-tested expertise to work with your leadership and your delivery teams in equal measure.
-    </p>
+    <p class="hero-sub">For more than 25 years, OnBizness Group has helped organizations turn strategy into structured, measurable execution. Our engagements are led by senior professionals with the field-tested expertise to work with your leadership and your delivery teams in equal measure.</p>
     <a href="#contact" class="btn-primary">Get in Touch</a>
-
     <div class="hero-stats">
       <div class="stat-item">
         <div class="stat-num">25<span>+</span></div>
@@ -439,7 +174,6 @@
   </div>
 </section>
 
-<!-- VALUE PROP -->
 <section class="value-prop">
   <div class="section-inner">
     <div class="section-label">Why OnBizness Group</div>
@@ -457,45 +191,33 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services">
   <div class="section-inner">
     <div class="section-label">What We Do</div>
     <h2 class="section-title">A complete transformation practice, senior led start to finish.</h2>
-    <div class="services-grid" style="grid-template-columns: repeat(3, 1fr);">
-
+    <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
         <h3>Enterprise Transformation Enablement</h3>
         <p>We help organizations close the gap between where leadership wants to go and what teams are actually delivering. That means building the governance structures, program frameworks, and portfolio visibility that turn strategic priorities into measurable results. Our work spans process improvement, change management, and senior-led program oversight across the full lifecycle of your most complex initiatives.</p>
         <a href="services.html" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
         <h3>Intelligent Automation &amp; AI-Enabled Advisory</h3>
         <p>We help organizations move beyond AI awareness into practical, accountable deployment. That means understanding how AI models reason, how agents are structured and connected to enterprise systems, and how multi-agent workflows can be orchestrated to automate complex business processes. We assess where these capabilities create genuine operational value in your environment, build the business case, and develop an implementation roadmap that accounts for your operational, regulatory, and governance requirements.</p>
         <a href="services.html" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
       </div>
-
       <div class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        </div>
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
         <h3>Agile Portfolio Governance</h3>
         <p>We bring structure and visibility to organizations running dozens of teams and portfolios simultaneously. That includes aligning delivery to strategic priorities, establishing governance that connects executive decision-making to team-level execution, and building the measurement frameworks that tell leadership whether the most important work is actually getting done. The methodology adapts to your existing agile framework rather than replacing it.</p>
         <a href="services.html" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- CREDIBILITY -->
 <section class="credibility">
   <div class="section-inner">
     <div class="section-label">Our Background</div>
@@ -503,7 +225,7 @@
     <div class="cred-grid">
       <div class="cred-card">
         <h3>Founded 1999</h3>
-        <p>OnBizness Group has operated continuously since 1999. Before founding the firm, our background includes senior leadership roles at IBM and KPMG, building international consulting practices across nearly 20 countries and delivering enterprise implementations at global scale.</p>
+        <p>OnBizness Group has operated continuously since 1999. Before founding the firm, our background includes senior leadership roles at IBM and KPMG, building international consulting practices and delivering enterprise implementations at global scale.</p>
       </div>
       <div class="cred-card">
         <h3>Mission-Critical Operations</h3>
@@ -517,7 +239,6 @@
   </div>
 </section>
 
-<!-- DIFFERENTIATORS -->
 <section class="differentiators">
   <div class="section-inner">
     <div class="section-label">What Makes Us Different</div>
@@ -542,7 +263,6 @@
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="section-inner">
     <h2 class="section-title">Let's talk about where the gap is.</h2>
@@ -551,11 +271,29 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
   <p style="margin-top:0.5rem; font-size:0.75rem;">Senior Led. Hands On. Enterprise Ready.</p>
 </footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
 
 </body>
 </html>
