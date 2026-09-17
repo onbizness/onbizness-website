@@ -26,6 +26,18 @@
   .nav-cta { background: var(--cyan); color: var(--navy) !important; padding: 0.5rem 1.25rem; border-radius: 4px; font-weight: 600 !important; }
   .nav-cta:hover { background: var(--cyan-dim); }
 
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: var(--navy); z-index: 99; flex-direction: column; padding: 2rem 1.5rem; gap: 0; overflow-y: auto; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 1.125rem; font-weight: 500; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: var(--white); }
+  .mobile-menu .mobile-cta { margin-top: 1.5rem; background: var(--cyan); color: var(--navy) !important; text-align: center; padding: 1rem; border-radius: 4px; font-weight: 600; border-bottom: none; }
+
   .page-header { background: var(--navy); padding: 4rem 2rem 3.5rem; }
   .page-header-inner { max-width: 1100px; margin: 0 auto; }
   .page-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(0,174,239,0.3); padding: 0.35rem 0.85rem; border-radius: 2px; margin-bottom: 1.25rem; }
@@ -85,7 +97,7 @@
   .clients-section .section-label { color: var(--cyan); }
   .clients-section .section-title { color: var(--white); }
   .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
-  .client-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; }
+  .client-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; justify-content: center; }
   .client-name { font-family: var(--font-display); font-size: 1.125rem; color: var(--white); margin-bottom: 0.3rem; }
   .client-sector { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.625rem; }
   .client-desc { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
@@ -112,10 +124,36 @@
   footer a:hover { color: var(--cyan); }
 
   @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
     .story-grid, .founder-grid, .diversity-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .engage-grid, .cap-grid, .clients-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+    section { padding: 3rem 1.25rem; }
+    .page-header { padding: 3rem 1.25rem; }
+    .diversity-section { padding: 3rem 1.25rem; }
   }
+
+  /* ACCESSIBILITY */
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--cyan);
+    color: var(--navy);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 0 0 4px 4px;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
 </style>
 </head>
 <body>
@@ -123,14 +161,14 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
-    <ul class="nav-links">
+        <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
     </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -138,17 +176,17 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="about.html" class="active">About</a>
   <a href="case-studies.html">Case Studies</a>
+  <a href="services.html">Services</a>
+  <a href="about.html"' class="active"'>About</a>
   <a href="contact.html" class="mobile-cta">Get in Touch</a>
 </div>
 
-<section class="page-header">
+<section class="page-header" id="main-content">
   <div class="page-header-inner">
     <div class="page-eyebrow">About OnBizness Group</div>
-    <h1>Built on 25 years of enterprise experience. Structured to deliver without the overhead.</h1>
-    <p>OnBizness Group is a boutique management consulting firm founded in 1999. We combine principal-level leadership with a curated network of senior practitioners to match the right expertise to every engagement.</p>
+    <h1>Built on 26 years of enterprise experience. Structured to deliver without the overhead.</h1>
+    <p>OnBizness Group is a boutique management consulting firm founded in 2000. We combine principal-level leadership with a curated network of senior practitioners to match the right expertise to every engagement.</p>
   </div>
 </section>
 
@@ -159,22 +197,18 @@
     <h2 class="section-title">Senior judgment at every stage. The right expertise for every challenge.</h2>
     <div class="story-grid">
       <div class="story-left">
-        <p>OnBizness Group was founded on a straightforward premise: organizations dealing with complex transformation challenges deserve senior-level attention throughout the engagement, not just at the point of sale. That premise has guided how the firm works for 25 years.</p>
+        <p>OnBizness Group was founded on a straightforward premise: organizations dealing with complex transformation challenges deserve senior-level attention throughout the engagement, not just at the point of sale. That premise has guided how the firm works for 26 years.</p>
         <p>Every engagement is led by a principal consultant who owns the client relationship, sets the strategic direction, and remains directly accountable for outcomes from the first conversation through to delivery. When an engagement calls for additional expertise, the firm draws on a curated network of experienced practitioners, each selected for what the specific work requires, not assigned from a standing bench.</p>
         <p>The result is a model that gives clients the senior attention of a boutique practice and the right capabilities for the problem at hand, without the overhead of a large firm or the risk of being handed off to a junior team once the engagement is underway.</p>
       </div>
       <div class="story-right">
         <div class="story-stat">
-          <div class="story-stat-num">25<span>+</span></div>
-          <div class="story-stat-label">Years in continuous operation since 1999</div>
+          <div class="story-stat-num">26<span>+</span></div>
+          <div class="story-stat-label">Years in continuous operation since 2000</div>
         </div>
         <div class="story-stat">
           <div class="story-stat-num">1,300<span>+</span></div>
           <div class="story-stat-label">Agile teams enabled across major financial institution engagements</div>
-        </div>
-        <div class="story-stat">
-          <div class="story-stat-num">25<span>+</span></div>
-          <div class="story-stat-label">Enterprise portfolios governed across major financial institution engagements</div>
         </div>
       </div>
     </div>
@@ -234,7 +268,7 @@
       <div class="founder-right">
         <p>Julian Montealegre brings more than 30 years of enterprise experience to every OnBizness Group engagement. His background spans software development, global implementation across nearly 20 countries, practice development at IBM and KPMG, mission-critical operations leadership, and embedded advisory work at major financial institutions. That combination of technical depth, operational rigor, and executive advisory experience shapes how OnBizness Group approaches every client relationship.</p>
         <p>What distinguishes his approach is the ability to operate at both ends of the engagement. He can sit across the table from a COO or CTO and align on strategy, then work directly with the teams responsible for execution, bridging the gap that most consultants leave unaddressed. That range is not common, and it is what clients consistently rely on.</p>
-        <p>OnBizness Group was founded on the belief that the most valuable thing a consultant can leave behind is not a deliverable. It is a client organization that is measurably more capable, better aligned, and better equipped to sustain progress after the engagement ends. That belief has guided every engagement since 1999.</p>
+        <p>OnBizness Group was founded on the belief that the most valuable thing a consultant can leave behind is not a deliverable. It is a client organization that is measurably more capable, better aligned, and better equipped to sustain progress after the engagement ends. That belief has guided every engagement since 2000.</p>
       </div>
     </div>
   </div>
@@ -247,7 +281,7 @@
     <h2 class="section-title">What the firm brings to each engagement.</h2>
     <div class="cap-grid">
       <div class="cap-card">
-        <h4>Certifications and Credentials</h4>
+        <h3>Certifications and Credentials</h3>
         <ul>
           <li>Project Management Professional (PMP)</li>
           <li>Certified Scrum Master (CSM)</li>
@@ -258,7 +292,7 @@
         </ul>
       </div>
       <div class="cap-card">
-        <h4>Technologies and Platforms</h4>
+        <h3>Technologies and Platforms</h3>
         <ul>
           <li>Jira Align, Jira, Confluence</li>
           <li>UiPath, BlueworksLive</li>
@@ -269,7 +303,7 @@
         </ul>
       </div>
       <div class="cap-card">
-        <h4>Governance and Oversight</h4>
+        <h3>Governance and Oversight</h3>
         <ul>
           <li>Supervisory Committee, Tampa Bay Federal Credit Union</li>
           <li>Audit oversight and internal controls review</li>
@@ -291,32 +325,26 @@
       <div class="client-card">
         <div class="client-name">Fidelity Investments</div>
         <div class="client-sector">Financial Services</div>
-        <div class="client-desc">Embedded advisory and enterprise agile transformation across the Enterprise Technology business unit. Ongoing engagement spanning platform onboarding, change management, and executive advisory.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Capital One</div>
         <div class="client-sector">Financial Services</div>
-        <div class="client-desc">Enterprise portfolio governance and agile transformation across Credit Card and Small Business units. Accountable to the CTO across 25 portfolios and over 600 agile teams.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Citi</div>
         <div class="client-sector">Financial Services</div>
-        <div class="client-desc">Intelligent automation assessment and process transformation. Delivered current and future state process designs, prioritized use cases, and ROI models with implemented recommendations.</div>
       </div>
       <div class="client-card">
         <div class="client-name">PricewaterhouseCoopers</div>
         <div class="client-sector">Professional Services</div>
-        <div class="client-desc">Program Management Office leadership for an enterprise SAP implementation. Governance framework, risk management, executive reporting, change control, and resource management.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Xpitax</div>
         <div class="client-sector">Tax Services</div>
-        <div class="client-desc">Designed and delivered the offshore tax preparation platform that helped establish Xpitax as a recognized provider of tax outsourcing services for U.S. accounting firms. The engagement required solving a data privacy challenge that had made offshore tax processing impractical, developing an innovative architecture that protected sensitive taxpayer information while enabling efficient offshore delivery. Xpitax now processes tens of thousands of outsourced tax returns annually.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Masco Corporation</div>
         <div class="client-sector">Manufacturing</div>
-        <div class="client-desc">Program Management Office support for an Oracle Financials implementation at a Fortune 500 manufacturer, delivered in partnership with Kribo Technical.</div>
       </div>
     </div>
   </div>
@@ -332,7 +360,7 @@
     <div class="diversity-right">
       <h3>Committed to diversity in enterprise consulting.</h3>
       <p>OnBizness Group is a minority-owned business enterprise. We bring the same commitment to inclusion and equity to our client engagements that we represent as an organization.</p>
-      <p>For organizations with supplier diversity programs, OnBizness Group welcomes the opportunity to explore how our services can support both your transformation objectives and your supplier diversity goals.</p>
+      <p>OnBizness Group is a certified Minority-Owned Business Enterprise. If your organization has supplier diversity or MBE procurement requirements, we can provide documentation and work within your vendor qualification process. Contact us to discuss.</p>
     </div>
   </div>
 </section>
@@ -342,7 +370,7 @@
   <div class="cta-inner">
     <h2>Ready to start a conversation?</h2>
     <p>Whether you have a specific initiative in mind or are still defining the problem, we are happy to talk through where OnBizness Group can help.</p>
-    <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+    <a href="contact.html" class="btn-primary">Get in Touch</a>
   </div>
 </section>
 
@@ -359,6 +387,7 @@
     menu.classList.toggle('open');
     btn.classList.toggle('open');
     document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    btn.setAttribute('aria-expanded', menu.classList.contains('open') ? 'true' : 'false');
   }
   document.addEventListener('click', function(e) {
     const menu = document.getElementById('mobileMenu');

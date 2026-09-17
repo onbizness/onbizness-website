@@ -297,6 +297,28 @@
     section { padding: 3rem 1.25rem; }
     .page-header { padding: 3rem 1.25rem; }
   }
+
+  /* ACCESSIBILITY */
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--cyan);
+    color: var(--navy);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 0 0 4px 4px;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
 </style>
 </head>
 <body>
@@ -305,14 +327,14 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
-    <ul class="nav-links">
+        <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="services.html" class="active">Services</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
     </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -320,9 +342,9 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">Home</a>
-  <a href="services.html" class="active">Services</a>
-  <a href="about.html">About</a>
   <a href="case-studies.html">Case Studies</a>
+  <a href="services.html"' class="active"'>Services</a>
+  <a href="about.html">About</a>
   <a href="contact.html" class="mobile-cta">Get in Touch</a>
 </div>
 
@@ -339,9 +361,9 @@
 <div class="tabs-section">
 
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="showTab('ete')">Enterprise Transformation Enablement</button>
-    <button class="tab-btn" onclick="showTab('ai')">Intelligent Automation &amp; AI Advisory</button>
-    <button class="tab-btn" onclick="showTab('apg')">Agile Portfolio Governance</button>
+    <button class="tab-btn active" onclick="showTab('ete')" aria-label="View Enterprise Transformation Enablement service">Enterprise Transformation Enablement</button>
+    <button class="tab-btn" onclick="showTab('ai')" aria-label="View Intelligent Automation and AI Advisory service">Intelligent Automation &amp; AI Advisory</button>
+    <button class="tab-btn" onclick="showTab('apg')" aria-label="View Agile Portfolio Governance service">Agile Portfolio Governance</button>
   </div>
 
   <!-- TAB 1: Enterprise Transformation Enablement -->
@@ -352,11 +374,11 @@
         <p>Most transformation initiatives have clear ambitions and capable teams. What they often lack is the connective tissue between strategic direction and day-to-day execution. Priorities shift without notice, dependencies go unmanaged, and leadership loses visibility into whether the most important work is actually moving forward.</p>
         <p>We work with organizations to build that connective tissue. That means establishing governance structures that hold, program frameworks that create accountability without bureaucracy, and reporting rhythms that give leadership a clear and honest picture of progress, risk, and decision points.</p>
         <p>Our work spans the full lifecycle of complex initiatives, from initial program structure and stakeholder alignment through execution oversight, change management, and sustainable delivery. We engage from the outset and when transformation is already underway and needs to be stabilized.</p>
-        <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
       </div>
       <div class="service-right">
         <div class="info-card">
-          <h4>Who We Work With</h4>
+          <h3>Who We Work With</h3>
           <ul>
             <li>Chief Operating Officers overseeing enterprise-wide initiatives</li>
             <li>Chief Information and Technology Officers driving technology transformation</li>
@@ -365,7 +387,7 @@
           </ul>
         </div>
         <div class="info-card">
-          <h4>What an Engagement Looks Like</h4>
+          <h3>What an Engagement Looks Like</h3>
           <ul>
             <li>Current state assessment of program structure and governance</li>
             <li>Design and implementation of program governance frameworks</li>
@@ -375,7 +397,7 @@
           </ul>
         </div>
         <div class="info-card">
-          <h4>Outcomes</h4>
+          <h3>Outcomes</h3>
           <ul>
             <li>Leadership visibility from strategy to team-level execution</li>
             <li>Reduced delivery risk through proactive governance</li>
@@ -395,11 +417,11 @@
         <p>Most organizations are aware that AI and automation can create value. Fewer know where to start, which use cases are genuinely ready for deployment, and how to build a roadmap that accounts for their operational, regulatory, and governance requirements.</p>
         <p>We help organizations move beyond AI awareness into practical, accountable deployment. That means understanding how AI models reason, how agents are structured and connected to enterprise systems, and how multi-agent workflows can be orchestrated to automate complex business processes.</p>
         <p>Our approach starts with a disciplined assessment of your current processes, identifying where manual effort, error rates, and cycle time create the most drag. We then build a prioritized use case roadmap with ROI models and future-state designs that give your leadership a credible, defensible path forward.</p>
-        <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
       </div>
       <div class="service-right">
         <div class="info-card">
-          <h4>Who We Work With</h4>
+          <h3>Who We Work With</h3>
           <ul>
             <li>Chief Operating Officers seeking operational efficiency</li>
             <li>Chief Digital and Innovation Officers evaluating AI strategy</li>
@@ -408,7 +430,7 @@
           </ul>
         </div>
         <div class="info-card">
-          <h4>What an Engagement Looks Like</h4>
+          <h3>What an Engagement Looks Like</h3>
           <ul>
             <li>Current state process inventory and labor quantification</li>
             <li>Automation and AI opportunity identification and prioritization</li>
@@ -418,7 +440,7 @@
           </ul>
         </div>
         <div class="info-card">
-          <h4>Outcomes</h4>
+          <h3>Outcomes</h3>
           <ul>
             <li>A prioritized, defensible automation roadmap</li>
             <li>Quantified savings in labor, cycle time, and error rates</li>
@@ -438,11 +460,11 @@
         <p>Organizations running dozens of agile teams often find that the frameworks meant to increase speed and flexibility create a different problem at scale. Individual teams are productive but portfolio-level visibility breaks down. Leadership cannot reliably see whether the most important initiatives are on track, where dependencies are creating risk, or whether delivery capacity is aligned to strategic priorities.</p>
         <p>We bring structure and visibility to complex portfolio environments without disrupting the agile practices that teams depend on. That means building governance that connects executive decision-making to team-level execution, establishing measurement frameworks that surface the right information at the right level, and ensuring that portfolio investments are traceable to strategic outcomes.</p>
         <p>Our methodology adapts to your existing agile framework rather than replacing it. We have applied this approach across portfolios spanning hundreds of teams at major financial institutions, building the alignment and accountability that makes large-scale agile delivery reliable.</p>
-        <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
       </div>
       <div class="service-right">
         <div class="info-card">
-          <h4>Who We Work With</h4>
+          <h3>Who We Work With</h3>
           <ul>
             <li>Chief Technology and Information Officers overseeing large delivery organizations</li>
             <li>Portfolio and Program Management Office leaders</li>
@@ -451,7 +473,7 @@
           </ul>
         </div>
         <div class="info-card">
-          <h4>What an Engagement Looks Like</h4>
+          <h3>What an Engagement Looks Like</h3>
           <ul>
             <li>Portfolio and agile maturity assessment</li>
             <li>Governance framework design aligned to existing agile practices</li>
@@ -461,7 +483,7 @@
           </ul>
         </div>
         <div class="info-card">
-          <h4>Outcomes</h4>
+          <h3>Outcomes</h3>
           <ul>
             <li>Executive visibility from strategy to team-level execution</li>
             <li>Reduced delivery variability across portfolios</li>
@@ -478,9 +500,21 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <h2>Not sure which service fits your situation?</h2>
-    <p>Most engagements start with a conversation. Tell us what you are trying to solve and we will help you determine where to begin.</p>
-    <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+    <div id="cta-ete">
+      <h2>Let's talk about your transformation program.</h2>
+      <p>Schedule a conversation or send us a message.</p>
+      <a href="contact.html" class="btn-primary">Get in Touch</a>
+    </div>
+    <div id="cta-ai" style="display:none;">
+      <h2>Ready to assess your automation opportunities?</h2>
+      <p>Start with a conversation.</p>
+      <a href="contact.html" class="btn-primary">Get in Touch</a>
+    </div>
+    <div id="cta-apg" style="display:none;">
+      <h2>We've built portfolio governance at scale.</h2>
+      <p>Let's talk about yours.</p>
+      <a href="contact.html" class="btn-primary">Get in Touch</a>
+    </div>
   </div>
 </section>
 
@@ -497,6 +531,7 @@
     menu.classList.toggle('open');
     btn.classList.toggle('open');
     document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    btn.setAttribute('aria-expanded', menu.classList.contains('open') ? 'true' : 'false');
   }
   document.addEventListener('click', function(e) {
     const menu = document.getElementById('mobileMenu');
@@ -512,6 +547,8 @@
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + id).classList.add('active');
     event.target.classList.add('active');
+    document.querySelectorAll('.cta-section [id^="cta-"]').forEach(c => c.style.display = 'none');
+    document.getElementById('cta-' + id).style.display = 'block';
   }
 </script>
 

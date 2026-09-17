@@ -123,6 +123,28 @@
     section { padding: 3rem 1.25rem; }
     .hero { padding: 3rem 1.25rem; }
   }
+
+  /* ACCESSIBILITY */
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--cyan);
+    color: var(--navy);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 0 0 4px 4px;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
 </style>
 </head>
 <body>
@@ -130,60 +152,64 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
-    <ul class="nav-links">
+        <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
     </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="active">Home</a>
+  <a href="index.html"' class="active"'>Home</a>
+  <a href="case-studies.html">Case Studies</a>
   <a href="services.html">Services</a>
   <a href="about.html">About</a>
-  <a href="case-studies.html">Case Studies</a>
-  <a href="#contact" class="mobile-cta" onclick="toggleMenu()">Get in Touch</a>
+  <a href="contact.html" class="mobile-cta">Get in Touch</a>
 </div>
 
-<section class="hero">
+<section class="hero" id="main-content">
   <div class="hero-inner">
     <div class="hero-eyebrow">Enterprise Strategy Execution</div>
     <h1>Turning Vision Into Reality Through <em>Structured and Transparent Execution</em></h1>
-    <p class="hero-sub">For more than 25 years, OnBizness Group has helped organizations turn strategy into structured, measurable execution. Our engagements are led by senior professionals with the field-tested expertise to work with your leadership and your delivery teams in equal measure.</p>
-    <a href="#contact" class="btn-primary">Get in Touch</a>
+    <p class="hero-sub">We close the gap between what leadership decides and what teams deliver. Senior-led, hands-on, and accountable to outcomes, not slide decks. Trusted by Fidelity, Capital One, and Citi.</p>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+      <a href="contact.html" class="btn-primary">Schedule a Conversation</a>
+      <a href="case-studies.html" style="display:inline-block;font-size:0.9375rem;font-weight:600;color:var(--cyan);text-decoration:none;padding:0.875rem 0;border-bottom:2px solid var(--cyan);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">See Our Work &rsaquo;</a>
+    </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-num">25<span>+</span></div>
+        <div class="stat-num">26<span>+</span></div>
         <div class="stat-label">Years in operation</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">1,300<span>+</span></div>
         <div class="stat-label">Agile teams enabled</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">25<span>+</span></div>
-        <div class="stat-label">Enterprise portfolios governed</div>
-      </div>
     </div>
   </div>
 </section>
 
+
+<!-- STATEMENT BANNER -->
+<div style="background: var(--steel); padding: 2.5rem 1.5rem; text-align: center;">
+  <p style="font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--white); line-height: 1.3; max-width: 800px; margin: 0 auto;">This is not advice from a slide deck.</p>
+</div>
+
 <section class="value-prop">
   <div class="section-inner">
     <div class="section-label">Why OnBizness Group</div>
-    <h2 class="section-title">The distance between strategic intent and delivery is where transformation breaks down.</h2>
+    <h2 class="section-title">Most transformation initiatives fail in the space between strategy and execution. That is exactly where we work.</h2>
     <div class="vp-grid">
       <div class="vp-callout">
         <p>OnBizness Group helps leaders close the distance between intent and execution. We work with executives and transformation leaders to build the clarity, alignment, and accountability needed to carry strategic priorities through to delivery, from the outset and when change is already underway.</p>
       </div>
       <div class="vp-aside">
-        <span class="deck-line">This is not advice from a slide deck.</span>
         <p>We assess the current state, align teams around shared priorities, and establish the decision-making rhythms and governance required to sustain progress.</p>
         <p>You work directly with experienced transformation leaders throughout the engagement, not a sales partner at the outset and a handoff to junior associates once the work begins.</p>
       </div>
@@ -221,11 +247,11 @@
 <section class="credibility">
   <div class="section-inner">
     <div class="section-label">Our Background</div>
-    <h2 class="section-title">25 years of enterprise delivery. Built, not borrowed.</h2>
+    <h2 class="section-title">26 years of enterprise delivery. Built, not borrowed.</h2>
     <div class="cred-grid">
       <div class="cred-card">
-        <h3>Founded 1999</h3>
-        <p>OnBizness Group has operated continuously since 1999. Before founding the firm, our background includes senior leadership roles at IBM and KPMG, building international consulting practices and delivering enterprise implementations at global scale.</p>
+        <h3>Founded 2000</h3>
+        <p>OnBizness Group has operated continuously since 2000. Before founding the firm, our background includes senior leadership roles at IBM and KPMG, building international consulting practices and delivering enterprise implementations at global scale.</p>
       </div>
       <div class="cred-card">
         <h3>Mission-Critical Operations</h3>
@@ -257,7 +283,7 @@
       <div class="diff-item">
         <div class="diff-num">03</div>
         <h3>Breadth without shallowness</h3>
-        <p>25 years of continuous experience across financial services, technology, consumer goods, and more means OnBizness Group brings pattern recognition from outside your industry. We do not apply a single vertical playbook everywhere.</p>
+        <p>26 years of continuous experience across financial services, technology, consumer goods, and more means OnBizness Group brings pattern recognition from outside your industry. We do not apply a single vertical playbook everywhere.</p>
       </div>
     </div>
   </div>
@@ -267,7 +293,7 @@
   <div class="section-inner">
     <h2 class="section-title">Let's talk about where the gap is.</h2>
     <p>Every transformation stalls somewhere between strategy and execution. If you're not sure exactly where yours is, that's a good place to start the conversation.</p>
-    <a href="mailto:contact@onbiznessgroup.com" class="btn-primary">Get in Touch</a>
+    <a href="contact.html" class="btn-primary">Get in Touch</a>
   </div>
 </section>
 
@@ -283,6 +309,7 @@
     menu.classList.toggle('open');
     btn.classList.toggle('open');
     document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    btn.setAttribute('aria-expanded', menu.classList.contains('open') ? 'true' : 'false');
   }
   document.addEventListener('click', function(e) {
     const menu = document.getElementById('mobileMenu');
