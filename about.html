@@ -73,6 +73,7 @@
   .founder-section { background: var(--white); }
   .founder-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; margin-top: 2.5rem; }
   .founder-left { background: var(--navy); border-radius: 8px; padding: 2.5rem; }
+  .founder-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid var(--cyan); display: block; margin: 0 auto 1.5rem; }
   .founder-name { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 0.375rem; }
   .founder-title { font-size: 0.875rem; color: var(--cyan); font-weight: 500; margin-bottom: 1.75rem; }
   .founder-details { display: flex; flex-direction: column; gap: 0.625rem; margin-bottom: 1.75rem; }
@@ -84,7 +85,7 @@
 
   /* CAPABILITIES */
   .capabilities-section { background: var(--offwhite); }
-  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .cap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
   .cap-card { background: var(--white); border: 1px solid #DDE3EC; border-radius: 6px; padding: 1.75rem; }
   .cap-card h4 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1rem; }
   .cap-card ul { list-style: none; padding: 0; }
@@ -253,6 +254,7 @@
     <h2 class="section-title">The experience and judgment behind every engagement.</h2>
     <div class="founder-grid">
       <div class="founder-left">
+        <img src="julian.jpg" alt="Julian Montealegre, Founder and Managing Principal of OnBizness Group" class="founder-photo">
         <div class="founder-name">Julian Montealegre</div>
         <div class="founder-title">Founder and Managing Principal</div>
         <div class="founder-details">
@@ -298,21 +300,10 @@
           <li>UiPath, BlueworksLive</li>
           <li>PostgreSQL, Snowflake, SQL</li>
           <li>Tableau, Spotfire</li>
-          <li>SAP R/3, PeopleSoft, Oracle</li>
           <li>Python, Visual Basic, AWS</li>
         </ul>
       </div>
-      <div class="cap-card">
-        <h3>Governance and Oversight</h3>
-        <ul>
-          <li>Supervisory Committee, Tampa Bay Federal Credit Union</li>
-          <li>Audit oversight and internal controls review</li>
-          <li>Regulatory compliance monitoring</li>
-          <li>FMEA and operational risk management</li>
-          <li>Executive and board-level reporting</li>
-        </ul>
       </div>
-    </div>
   </div>
 </section>
 
@@ -324,27 +315,31 @@
     <div class="clients-grid">
       <div class="client-card">
         <div class="client-name">Fidelity Investments</div>
-        <div class="client-sector">Financial Services</div>
+        <div class="client-sector">Financial Services (Fortune 500)</div>
+        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Ongoing embedded advisory engagement spanning multiple phases. Initial scope covered enterprise agile transformation and portfolio management platform onboarding across one of the firm's core business units, supporting over 700 teams. Evolved into a broader trusted advisor role covering data analysis, leadership coaching, program delivery support, and operational readiness across the organization.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Capital One</div>
-        <div class="client-sector">Financial Services</div>
+        <div class="client-sector">Financial Services (Fortune 500)</div>
       </div>
       <div class="client-card">
         <div class="client-name">Citi</div>
-        <div class="client-sector">Financial Services</div>
+        <div class="client-sector">Financial Services (Global Tier 1 Bank)</div>
       </div>
       <div class="client-card">
         <div class="client-name">PricewaterhouseCoopers</div>
-        <div class="client-sector">Professional Services</div>
+        <div class="client-sector">Professional Services (Big 4)</div>
+        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Part of a PMO team supporting the U.S. deployment of a large-scale internal enterprise financial systems unification program built on SAP R/3 and SAP ECC. Maintained the master program plan across finance, IT, data, integrations, testing, change management, and deployment workstreams. Responsible for dependency tracking, critical path risk management, scope and change control, stakeholder management, and executive status reporting.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Xpitax</div>
-        <div class="client-sector">Tax Services</div>
+        <div class="client-sector">Tax Outsourcing Services</div>
+        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Engaged at inception to design and build the platform and operational model that made offshore tax preparation viable for U.S. accounting firms. Scaled from launch to over 20,000 returns annually within three years.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Masco Corporation</div>
-        <div class="client-sector">Manufacturing</div>
+        <div class="client-sector">Manufacturing (Fortune 500)</div>
+        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Part of a PMO team supporting the simultaneous implementation of PeopleSoft and Oracle Financials. PeopleSoft scope covered payroll, HR data, and benefits. Oracle Financials scope covered general ledger, accounts payable, accounts receivable, inventory, purchasing, and order management. Provided both PMO support and functional expertise across both platforms.</div>
       </div>
     </div>
   </div>
@@ -359,7 +354,7 @@
     </div>
     <div class="diversity-right">
       <h3>Committed to diversity in enterprise consulting.</h3>
-      <p>OnBizness Group is a minority-owned business enterprise. We bring the same commitment to inclusion and equity to our client engagements that we represent as an organization.</p>
+      <p>OnBizness Group is a minority-owned business enterprise. Organizations with supplier diversity or MBE procurement requirements can request our certification documentation directly. We are experienced working within vendor qualification processes and can support your procurement team through onboarding requirements.</p>
       <p>OnBizness Group is a certified Minority-Owned Business Enterprise. If your organization has supplier diversity or MBE procurement requirements, we can provide documentation and work within your vendor qualification process. Contact us to discuss.</p>
     </div>
   </div>

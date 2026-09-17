@@ -410,6 +410,13 @@
     transition: top 0.2s;
   }
   .skip-link:focus { top: 0; }
+
+  /* FILTERS */
+  .filter-bar { display: flex; gap: 0.625rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .filter-btn { background: transparent; border: 1px solid #DDE3EC; color: #5A6E83; font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600; padding: 0.5rem 1.1rem; border-radius: 100px; cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em; }
+  .filter-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+  .filter-btn.active { background: var(--cyan); border-color: var(--cyan); color: var(--navy); }
+  .case-card.hidden { display: none; }
 </style>
 </head>
 <body>
@@ -450,10 +457,21 @@
 
 <!-- CASE STUDIES -->
 <div class="cases-section">
-  <div class="cases-inner">
+  <div class="cases-section" style="padding-bottom:0;"><div class="cases-inner">
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCases('all')">All</button>
+    <button class="filter-btn" onclick="filterCases('financial-services')">Financial Services</button>
+    <button class="filter-btn" onclick="filterCases('enterprise-agile')">Enterprise Agile</button>
+    <button class="filter-btn" onclick="filterCases('intelligent-automation')">Intelligent Automation</button>
+    <button class="filter-btn" onclick="filterCases('technology')">Technology</button>
+    <button class="filter-btn" onclick="filterCases('platform-development')">Platform Development</button>
+  </div>
+
+
 
     <!-- CASE 1: FIDELITY (ANONYMOUS) -->
-    <div class="case-card" id="case1">
+    <div class="case-card" id="case1" data-tags="financial-services enterprise-agile">
       <div class="case-header" onclick="toggleCase('case1')">
         <div class="case-header-left">
           <div class="case-tags">
@@ -474,7 +492,7 @@
           <div class="case-left">
             <span class="case-section-label">The Situation</span>
             <h3>A large-scale agile transformation that needed more than a technical deployment.</h3>
-            <p>The client was undertaking an enterprise-wide agile transformation across its technology organization and had engaged OnBizness Group to support the implementation of Jira Align as the portfolio management platform across the Enterprise Technology business unit. Internal teams were in place, but the organization needed an experienced consulting partner who had navigated this type of deployment before and could bring the strategic perspective, preparation discipline, and broader framework that separates a successful enterprise rollout from a tactical tool installation.</p>
+            <p>The client was undertaking an enterprise-wide agile transformation across its technology organization and had engaged OnBizness Group to support the implementation of Jira Align as the portfolio management platform across one of its core business units. Internal teams were in place, but the organization needed an experienced consulting partner who had navigated this type of deployment before and could bring the strategic perspective, preparation discipline, and broader framework that separates a successful enterprise rollout from a tactical tool installation.</p>
             <p>Teams had inconsistent Jira configurations, legacy data issues, and no established connection between their day-to-day work and the broader strategic priorities leadership needed to track. Without a structured hierarchy connecting stories, epics, and programs to enterprise themes and focus areas, leadership had no reliable visibility into whether the most important work was actually moving forward. The pre-work required to make the deployment meaningful was significant and had not yet been addressed.</p>
             <p>OnBizness Group brought the experience of having done this at scale, the consulting discipline to structure the effort properly from the outset, and the ability to coach and mentor internal teams throughout, building their capability alongside the deployment rather than simply executing tasks on their behalf.</p>
 
@@ -528,12 +546,12 @@
                 <div class="outcome-label">Workstream areas delivered</div>
               </div>
               <div class="outcome-item">
-                <div class="outcome-num">Full</div>
-                <div class="outcome-label">Strategy-to-execution hierarchy established</div>
+                <div class="outcome-num">6</div>
+                <div class="outcome-label">Domains successfully onboarded to the platform</div>
               </div>
               <div class="outcome-item">
-                <div class="outcome-num">Live</div>
-                <div class="outcome-label">Real-time portfolio visibility for leadership</div>
+                <div class="outcome-num">250<span style="font-size:1.25rem;">+</span></div>
+                <div class="outcome-label">Squads supported across the transformation</div>
               </div>
             </div>
 
@@ -547,38 +565,101 @@
       </div>
     </div>
 
-    <!-- CASE 2: COMING SOON -->
-    <div class="case-card coming-soon">
-      <div class="case-header">
+    <!-- CASE 2: XPITAX (ANONYMOUS) -->
+    <div class="case-card" id="case2" data-tags="technology platform-development">
+      <div class="case-header" onclick="toggleCase('case2')">
         <div class="case-header-left">
           <div class="case-tags">
-            <span class="case-tag">Enterprise Transformation</span>
-            <span class="case-tag">Agile Portfolio Governance</span>
-            <span class="case-tag soon">Coming Soon</span>
+            <span class="case-tag">Platform Development</span>
+            <span class="case-tag">Business Innovation</span>
+            <span class="case-tag">Tax Services</span>
           </div>
-          <div class="case-title" role="heading" aria-level="2">Enterprise Strategic Alignment Across 600 Agile Teams</div>
-          <div class="case-client">A major U.S. financial institution</div>
+          <div class="case-title" role="heading" aria-level="2">Inventing the Trust Layer That Made Offshore Tax Preparation Viable</div>
+          <div class="case-client">A U.S. tax preparation outsourcing firm — engagement at inception of the service category</div>
         </div>
-        <div class="case-toggle" style="opacity:0.3;">
+        <div class="case-toggle">
           <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-body-grid">
+
+          <div class="case-left">
+            <span class="case-section-label">The Situation</span>
+            <h3>An idea with no answers. A service category that did not yet exist.</h3>
+            <p>The client had a compelling vision: offer offshore tax preparation outsourcing to U.S. accounting firms and CPAs struggling with heavy workloads during peak tax season. The concept addressed a real market need. But at the moment OnBizness Group was engaged, nothing was in place to support it. No technology. No process. No answers to the fundamental questions that would determine whether the idea was viable at all.</p>
+            <p>The questions were serious and legitimate. How would sensitive client data including Social Security numbers and financial records be protected if tax preparation was happening offshore in India? Would the quality of work meet U.S. tax law standards? Would the service feel impersonal or opaque to accounting firm clients? How would work be tracked, communicated, and managed? How would consistency be maintained at scale?</p>
+            <p>OnBizness Group was brought in at this exact moment, referred by a KPMG partner and IBM senior director who had direct knowledge of the firm's ability to bridge business strategy, technology architecture, and operational execution simultaneously. The mandate was not to build software. It was to figure out whether this could work, and if so, how.</p>
+
+            <span class="case-section-label" style="margin-top:2rem;display:block;">The Work</span>
+            <h3>Solving the core barrier first. Then building everything around it.</h3>
+            <ul class="work-list">
+              <li class="work-item">
+                <div class="work-item-title">Data Security Architecture</div>
+                <div class="work-item-desc">Designed a Citrix-based remote terminal access environment hosted entirely on U.S. infrastructure. Certified chartered accountants in India accessed client tax data through secure dummy terminals in a paperless, device-free environment. No downloads, no file transfers, no screen captures, no printing. The data never left the United States. This single architectural decision resolved the core privacy and security barrier that was preventing the service from existing in a form U.S. clients would accept.</div>
+              </li>
+              <li class="work-item">
+                <div class="work-item-title">Process and Workflow Design</div>
+                <div class="work-item-desc">Worked closely with the client to define clear end-to-end workflows covering how work was assigned, tracked, reviewed, and communicated. Built transparency into every stage of the process so accounting firm clients had full visibility into the status of their returns without compromising the security architecture.</div>
+              </li>
+              <li class="work-item">
+                <div class="work-item-title">Quality and Consistency Framework</div>
+                <div class="work-item-desc">Established quality standards and review processes to ensure offshore preparers, all certified chartered accountants with U.S. tax law expertise, delivered work that met the expectations of U.S. accounting firm clients consistently at scale.</div>
+              </li>
+              <li class="work-item">
+                <div class="work-item-title">Platform Development and Launch</div>
+                <div class="work-item-desc">Managed end-to-end development and deployment of the platform, bridging business requirements and technical execution. Supported the platform through two full tax seasons before transitioning operations to the client's own team.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="case-right">
+            <span class="case-section-label">The Outcome</span>
+            <h3>A new service category. Built from nothing. Scaled in three years.</h3>
+            <p>The platform launched and performed. Accounting firms adopted the service because the security architecture gave them confidence that their clients' sensitive data was protected. The process transparency gave them assurance that quality was being maintained. The offshore model gave them the capacity relief they needed during peak season without the overhead of additional U.S.-based staff.</p>
+            <p>Xpitax is today a recognized and established provider of offshore tax preparation outsourcing services for U.S. accounting firms. OnBizness Group was there at the inception of what has become a viable and growing service category, brought in because of the rare combination of business strategy, technology architecture, and operational execution expertise that the moment required.</p>
+
+            <div class="outcome-grid">
+              <div class="outcome-item">
+                <div class="outcome-num">1,500<span style="font-size:1rem;">+</span></div>
+                <div class="outcome-label">Returns processed in year one</div>
+              </div>
+              <div class="outcome-item">
+                <div class="outcome-num">20,000<span style="font-size:1rem;">+</span></div>
+                <div class="outcome-label">Returns processed annually within three years</div>
+              </div>
+              <div class="outcome-item">
+                <div class="outcome-num">0</div>
+                <div class="outcome-label">Data security incidents across two full seasons</div>
+              </div>
+              <div class="outcome-item">
+                <div class="outcome-num">New</div>
+                <div class="outcome-label">Service category created from inception</div>
+              </div>
+            </div>
+
+            <div style="margin-top:2rem;padding:1.5rem;background:var(--offwhite);border-radius:6px;border-left:3px solid var(--cyan);">
+              <span class="case-section-label">Why OnBizness Group Was Chosen</span>
+              <p style="margin-top:0.5rem;font-size:0.9rem;color:#3D5166;line-height:1.75;">The engagement came through a direct referral from a colleague who had worked alongside Julian at both KPMG and IBM. Having seen his capabilities firsthand across both firms, and knowing he was now running his own practice, she connected him with the founder. She knew Julian could handle the business complexity, the technology architecture, and the operational execution simultaneously. That combination was exactly what this challenge required.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <!-- CASE 3: COMING SOON -->
-    <div class="case-card coming-soon">
-      <div class="case-header">
+    <!-- CASE 3: TEASER -->
+    <div class="case-card" data-tags="financial-services intelligent-automation" style="cursor:default;">
+      <div class="case-header" style="cursor:default;">
         <div class="case-header-left">
           <div class="case-tags">
             <span class="case-tag">Intelligent Automation</span>
             <span class="case-tag">Business Process Improvement</span>
-            <span class="case-tag soon">Coming Soon</span>
+            <span class="case-tag soon">In Development</span>
           </div>
           <div class="case-title" role="heading" aria-level="2">Intelligent Automation Assessment and Process Transformation</div>
           <div class="case-client">A Tier 1 global financial institution</div>
-        </div>
-        <div class="case-toggle" style="opacity:0.3;">
-          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          <p style="font-size:0.9rem;color:#5A6E83;line-height:1.75;margin-top:1rem;max-width:640px;">This engagement involved a full automation opportunity assessment across multiple business processes at one of the largest financial institutions in the United States. The work included current state process inventory, labor quantification, compliance risk identification, ROI modeling, and future state design. Recommendations were implemented with documented improvements in quality, cycle time, and cost. Full case study in development.</p>
         </div>
       </div>
     </div>
@@ -589,9 +670,9 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <h2>Interested in working together?</h2>
-    <p>Every engagement starts with a conversation about the problem you are trying to solve. Let us talk through your situation and determine where we can help.</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
+    <h2>Discuss a Similar Challenge.</h2>
+    <p>If any of these engagements resemble what your organization is working through, let us talk. The first conversation is about your situation, not our services.</p>
+    <a href="contact.html" class="btn-primary">Start the Conversation</a>
   </div>
 </section>
 
@@ -602,6 +683,20 @@
 </footer>
 
 <script>
+
+  function filterCases(tag) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.case-card').forEach(card => {
+      if (tag === 'all') {
+        card.classList.remove('hidden');
+      } else {
+        const tags = card.getAttribute('data-tags') || '';
+        card.classList.toggle('hidden', !tags.includes(tag));
+      }
+    });
+  }
+
   function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
     const btn = document.querySelector('.hamburger');

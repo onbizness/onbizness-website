@@ -43,9 +43,23 @@
   .mobile-menu .mobile-cta { margin-top: 1.5rem; background: var(--cyan); color: var(--navy) !important; text-align: center; padding: 1rem; border-radius: 4px; font-weight: 600; border-bottom: none; }
 
   /* HERO */
-  .hero { background: var(--navy); color: var(--white); padding: 5rem 1.5rem 4rem; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -120px; right: -80px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(0,174,239,0.07) 0%, transparent 70%); pointer-events: none; }
-  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 5rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(11,31,58,0.92) 25%, rgba(11,31,58,0.40) 100%),
+      url('hero.jpg') center center / cover no-repeat;
+    z-index: 0;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
   .hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.25rem; border: 1px solid rgba(0,174,239,0.3); padding: 0.35rem 0.85rem; border-radius: 2px; }
   .hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1.15; color: var(--white); max-width: 720px; margin-bottom: 1.25rem; }
   .hero h1 em { font-style: normal; color: var(--cyan); }
@@ -96,7 +110,7 @@
 
   /* DIFFERENTIATORS */
   .differentiators { background: var(--white); }
-  .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2.5rem; }
+  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2.5rem; }
   .diff-item { border-top: 2px solid var(--cyan); padding-top: 1.5rem; }
   .diff-num { font-family: var(--font-display); font-size: 2.5rem; color: rgba(0,174,239,0.2); line-height: 1; margin-bottom: 0.75rem; }
   .diff-item h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.35; }
@@ -225,20 +239,20 @@
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
         <h3>Enterprise Transformation Enablement</h3>
-        <p>We help organizations close the gap between where leadership wants to go and what teams are actually delivering. That means building the governance structures, program frameworks, and portfolio visibility that turn strategic priorities into measurable results. Our work spans process improvement, change management, and senior-led program oversight across the full lifecycle of your most complex initiatives.</p>
-        <a href="services.html" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
+        <p>We bridge the gap between strategic direction and delivery. Governance structures, program frameworks, and portfolio visibility that turn priorities into measurable results.</p>
+        <a href="services.html#ete" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
         <h3>Intelligent Automation &amp; AI-Enabled Advisory</h3>
-        <p>We help organizations move beyond AI awareness into practical, accountable deployment. That means understanding how AI models reason, how agents are structured and connected to enterprise systems, and how multi-agent workflows can be orchestrated to automate complex business processes. We assess where these capabilities create genuine operational value in your environment, build the business case, and develop an implementation roadmap that accounts for your operational, regulatory, and governance requirements.</p>
-        <a href="services.html" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
+        <p>We move organizations from AI awareness to practical deployment. Process assessment, use case prioritization, ROI modeling, and implementation roadmaps grounded in how AI agents actually work.</p>
+        <a href="services.html#ai" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
       </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
         <h3>Agile Portfolio Governance</h3>
-        <p>We bring structure and visibility to organizations running dozens of teams and portfolios simultaneously. That includes aligning delivery to strategic priorities, establishing governance that connects executive decision-making to team-level execution, and building the measurement frameworks that tell leadership whether the most important work is actually getting done. The methodology adapts to your existing agile framework rather than replacing it.</p>
-        <a href="services.html" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
+        <p>Structure and visibility across dozens of teams and portfolios. Governance that connects executive decisions to team execution, with measurement frameworks that tell leadership whether the right work is getting done.</p>
+        <a href="services.html#apg" style="display:inline-block;margin-top:1rem;font-size:0.875rem;font-weight:600;color:#00AEEF;text-decoration:none;">Learn More &rsaquo;</a>
       </div>
     </div>
   </div>
@@ -259,7 +273,7 @@
       </div>
       <div class="cred-card cred-full">
         <h3>Client Experience</h3>
-        <p>OnBizness Group has delivered engagements for Citi, Capital One, Fidelity Investments, PricewaterhouseCoopers, Xpitax, and Masco Corporation. Our work has spanned intelligent automation assessments, enterprise agile transformation, portfolio governance, program management, and custom software development across financial services, professional services, tax services, and manufacturing.</p>
+        <p>OnBizness Group has delivered engagements for Citi, Capital One, Fidelity Investments, PricewaterhouseCoopers, Xpitax, and Masco Corporation. Our work has spanned intelligent automation assessments, enterprise agile transformation, portfolio governance, program management, and custom software development across financial services, professional services, tax services, and manufacturing. We bring particular depth in financial services transformation, with engagements at three of the largest institutions in the United States.</p>
       </div>
     </div>
   </div>
@@ -284,6 +298,42 @@
         <div class="diff-num">03</div>
         <h3>Breadth without shallowness</h3>
         <p>26 years of continuous experience across financial services, technology, consumer goods, and more means OnBizness Group brings pattern recognition from outside your industry. We do not apply a single vertical playbook everywhere.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">04</div>
+        <h3>Bilingual delivery in English and Spanish</h3>
+        <p>For organizations with Latin American operations, nearshore delivery relationships, or Spanish-speaking leadership, OnBizness Group delivers fully in both English and Spanish. No interpreter. No translation lag. Senior-level fluency across both languages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW AN ENGAGEMENT WORKS -->
+<section style="background:var(--offwhite);padding:4rem 1.5rem;">
+  <div class="section-inner">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">What to expect when you engage OnBizness Group.</h2>
+    <p style="font-size:1rem;color:#3D5166;max-width:640px;line-height:1.8;margin-bottom:3rem;">Every engagement follows the same principle: senior involvement from the first conversation through to delivery. Here is what the process typically looks like.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+      <div style="background:var(--white);border:1px solid #DDE3EC;border-radius:6px;padding:1.75rem;position:relative;">
+        <div style="font-family:var(--font-display);font-size:2.5rem;color:rgba(0,174,239,0.15);line-height:1;margin-bottom:0.75rem;">01</div>
+        <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:0.625rem;line-height:1.3;">Discovery Conversation</h3>
+        <p style="font-size:0.875rem;color:#5A6E83;line-height:1.7;">A 30-minute call to understand your situation, the problem you are trying to solve, and whether OnBizness Group is the right fit. No pitch. Direct conversation.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid #DDE3EC;border-radius:6px;padding:1.75rem;">
+        <div style="font-family:var(--font-display);font-size:2.5rem;color:rgba(0,174,239,0.15);line-height:1;margin-bottom:0.75rem;">02</div>
+        <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:0.625rem;line-height:1.3;">Scope and Approach</h3>
+        <p style="font-size:0.875rem;color:#5A6E83;line-height:1.7;">If there is a fit, we define the engagement scope, delivery approach, and expected outcomes. You receive a clear picture of what the work involves before any commitment is made.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid #DDE3EC;border-radius:6px;padding:1.75rem;">
+        <div style="font-family:var(--font-display);font-size:2.5rem;color:rgba(0,174,239,0.15);line-height:1;margin-bottom:0.75rem;">03</div>
+        <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:0.625rem;line-height:1.3;">Senior-Led Delivery</h3>
+        <p style="font-size:0.875rem;color:#5A6E83;line-height:1.7;">The engagement is led by the same principal who scoped it. No handoffs. Direct involvement at every stage from assessment through execution and reporting.</p>
+      </div>
+      <div style="background:var(--white);border:1px solid #DDE3EC;border-radius:6px;padding:1.75rem;">
+        <div style="font-family:var(--font-display);font-size:2.5rem;color:rgba(0,174,239,0.15);line-height:1;margin-bottom:0.75rem;">04</div>
+        <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:0.625rem;line-height:1.3;">Measurable Outcomes</h3>
+        <p style="font-size:0.875rem;color:#5A6E83;line-height:1.7;">Every engagement is structured around outcomes that can be measured. We define what success looks like at the outset and hold ourselves accountable to it throughout.</p>
       </div>
     </div>
   </div>

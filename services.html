@@ -111,6 +111,25 @@
     line-height: 1.75;
   }
 
+  /* TAB NAV SCROLL FADE */
+  .tab-nav-wrapper {
+    position: relative;
+  }
+  .tab-nav-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--offwhite));
+    pointer-events: none;
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .tab-nav-wrapper::after { display: block; }
+  }
+
   /* TABS SECTION */
   .tabs-section {
     padding: 3rem 2rem 5rem;
@@ -360,10 +379,12 @@
 <!-- TABS -->
 <div class="tabs-section">
 
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="showTab('ete')" aria-label="View Enterprise Transformation Enablement service">Enterprise Transformation Enablement</button>
-    <button class="tab-btn" onclick="showTab('ai')" aria-label="View Intelligent Automation and AI Advisory service">Intelligent Automation &amp; AI Advisory</button>
-    <button class="tab-btn" onclick="showTab('apg')" aria-label="View Agile Portfolio Governance service">Agile Portfolio Governance</button>
+  <div class="tab-nav-wrapper">
+    <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('ete')" aria-label="View Enterprise Transformation Enablement service">Transformation</button>
+    <button class="tab-btn" onclick="showTab('ai')" aria-label="View Intelligent Automation and AI Advisory service">Automation &amp; AI</button>
+    <button class="tab-btn" onclick="showTab('apg')" aria-label="View Agile Portfolio Governance service">Portfolio Governance</button>
+  </div>
   </div>
 
   <!-- TAB 1: Enterprise Transformation Enablement -->
@@ -459,7 +480,7 @@
         <h2>Agile Portfolio Governance</h2>
         <p>Organizations running dozens of agile teams often find that the frameworks meant to increase speed and flexibility create a different problem at scale. Individual teams are productive but portfolio-level visibility breaks down. Leadership cannot reliably see whether the most important initiatives are on track, where dependencies are creating risk, or whether delivery capacity is aligned to strategic priorities.</p>
         <p>We bring structure and visibility to complex portfolio environments without disrupting the agile practices that teams depend on. That means building governance that connects executive decision-making to team-level execution, establishing measurement frameworks that surface the right information at the right level, and ensuring that portfolio investments are traceable to strategic outcomes.</p>
-        <p>Our methodology adapts to your existing agile framework rather than replacing it. We have applied this approach across portfolios spanning hundreds of teams at major financial institutions, building the alignment and accountability that makes large-scale agile delivery reliable.</p>
+        <p>Our methodology adapts to your existing agile framework rather than replacing it. We have applied this approach across portfolios spanning hundreds of teams at major financial institutions, building the alignment and accountability that makes large-scale agile delivery reliable. <a href="case-studies.html" style="color:var(--cyan);font-weight:600;text-decoration:none;">See how we did it &rsaquo;</a></p>
         <a href="contact.html" class="btn-primary">Get in Touch</a>
       </div>
       <div class="service-right">
@@ -549,7 +570,24 @@
     event.target.classList.add('active');
     document.querySelectorAll('.cta-section [id^="cta-"]').forEach(c => c.style.display = 'none');
     document.getElementById('cta-' + id).style.display = 'block';
+    history.replaceState(null, '', '#' + id);
   }
+
+  // On page load, activate tab based on URL hash
+  (function() {
+    const hash = window.location.hash.replace('#', '');
+    const validTabs = ['ete', 'ai', 'apg'];
+    if (hash && validTabs.includes(hash)) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + hash).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        if (b.getAttribute('onclick').includes("'" + hash + "'")) b.classList.add('active');
+      });
+      document.querySelectorAll('.cta-section [id^="cta-"]').forEach(c => c.style.display = 'none');
+      document.getElementById('cta-' + hash).style.display = 'block';
+    }
+  })();
 </script>
 
 </body>
