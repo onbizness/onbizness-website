@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="OnBizness Group offers three focused consulting practice areas: Enterprise Transformation Enablement, Intelligent Automation and AI Advisory, and Agile Portfolio Governance. Senior led, hands on, no handoffs.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — OnBizness Group</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -283,7 +284,11 @@
     line-height: 1.75;
   }
 
-  /* FOOTER */
+  /* CTA TAB PANELS */
+  .cta-section [id^="cta-"] { display: none; }
+  .cta-section #cta-ete { display: block; }
+
+
   footer {
     background: var(--navy);
     color: var(--muted);
@@ -373,6 +378,7 @@
     <div class="page-eyebrow">What We Do</div>
     <h1>Services built around the problems that actually slow transformation down.</h1>
     <p>Three focused practice areas, each grounded in hands-on experience across large-scale enterprise environments and complex, high-stakes transformation programs.</p>
+    <p style="font-size:0.9375rem;color:var(--muted);margin-top:0.75rem;line-height:1.75;">Program management, business process improvement, and change management are delivered as integral components of each practice area rather than standalone services.</p>
   </div>
 </section>
 
@@ -389,13 +395,14 @@
 
   <!-- TAB 1: Enterprise Transformation Enablement -->
   <div class="tab-panel active" id="tab-ete">
+    <div class="tab-banner" style="background: linear-gradient(to right, rgba(11,31,58,0.85) 30%, rgba(11,31,58,0.45) 100%), url('tab-transformation.jpg') center center / cover no-repeat; height: 220px; border-radius: 6px; margin-bottom: 2rem;"></div>
     <div class="service-layout">
       <div class="service-left">
         <h2>Enterprise Transformation Enablement</h2>
         <p>Most transformation initiatives have clear ambitions and capable teams. What they often lack is the connective tissue between strategic direction and day-to-day execution. Priorities shift without notice, dependencies go unmanaged, and leadership loses visibility into whether the most important work is actually moving forward.</p>
         <p>We work with organizations to build that connective tissue. That means establishing governance structures that hold, program frameworks that create accountability without bureaucracy, and reporting rhythms that give leadership a clear and honest picture of progress, risk, and decision points.</p>
         <p>Our work spans the full lifecycle of complex initiatives, from initial program structure and stakeholder alignment through execution oversight, change management, and sustainable delivery. We engage from the outset and when transformation is already underway and needs to be stabilized.</p>
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="contact.html" class="btn-primary">Discuss Your Program</a>
       </div>
       <div class="service-right">
         <div class="info-card">
@@ -432,13 +439,14 @@
 
   <!-- TAB 2: Intelligent Automation & AI Advisory -->
   <div class="tab-panel" id="tab-ai">
+    <div class="tab-banner" style="background: linear-gradient(to right, rgba(11,31,58,0.85) 30%, rgba(11,31,58,0.45) 100%), url('tab-automation.jpg') center center / cover no-repeat; height: 220px; border-radius: 6px; margin-bottom: 2rem;"></div>
     <div class="service-layout">
       <div class="service-left">
         <h2>Intelligent Automation &amp; AI-Enabled Advisory</h2>
         <p>Most organizations are aware that AI and automation can create value. Fewer know where to start, which use cases are genuinely ready for deployment, and how to build a roadmap that accounts for their operational, regulatory, and governance requirements.</p>
         <p>We help organizations move beyond AI awareness into practical, accountable deployment. That means understanding how AI models reason, how agents are structured and connected to enterprise systems, and how multi-agent workflows can be orchestrated to automate complex business processes.</p>
         <p>Our approach starts with a disciplined assessment of your current processes, identifying where manual effort, error rates, and cycle time create the most drag. We then build a prioritized use case roadmap with ROI models and future-state designs that give your leadership a credible, defensible path forward.</p>
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="contact.html" class="btn-primary">Request an Assessment</a>
       </div>
       <div class="service-right">
         <div class="info-card">
@@ -475,13 +483,14 @@
 
   <!-- TAB 3: Agile Portfolio Governance -->
   <div class="tab-panel" id="tab-apg">
+    <div class="tab-banner" style="background: linear-gradient(to right, rgba(11,31,58,0.85) 30%, rgba(11,31,58,0.45) 100%), url('tab-governance.jpg') center center / cover no-repeat; height: 220px; border-radius: 6px; margin-bottom: 2rem;"></div>
     <div class="service-layout">
       <div class="service-left">
         <h2>Agile Portfolio Governance</h2>
         <p>Organizations running dozens of agile teams often find that the frameworks meant to increase speed and flexibility create a different problem at scale. Individual teams are productive but portfolio-level visibility breaks down. Leadership cannot reliably see whether the most important initiatives are on track, where dependencies are creating risk, or whether delivery capacity is aligned to strategic priorities.</p>
         <p>We bring structure and visibility to complex portfolio environments without disrupting the agile practices that teams depend on. That means building governance that connects executive decision-making to team-level execution, establishing measurement frameworks that surface the right information at the right level, and ensuring that portfolio investments are traceable to strategic outcomes.</p>
         <p>Our methodology adapts to your existing agile framework rather than replacing it. We have applied this approach across portfolios spanning hundreds of teams at major financial institutions, building the alignment and accountability that makes large-scale agile delivery reliable. <a href="case-studies.html" style="color:var(--cyan);font-weight:600;text-decoration:none;">See how we did it &rsaquo;</a></p>
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="contact.html" class="btn-primary">Talk About Your Portfolio</a>
       </div>
       <div class="service-right">
         <div class="info-card">
@@ -524,24 +533,24 @@
     <div id="cta-ete">
       <h2>Let's talk about your transformation program.</h2>
       <p>Schedule a conversation or send us a message.</p>
-      <a href="contact.html" class="btn-primary">Get in Touch</a>
+      <a href="contact.html" class="btn-primary">Discuss Your Program</a>
     </div>
-    <div id="cta-ai" style="display:none;">
+    <div id="cta-ai">
       <h2>Ready to assess your automation opportunities?</h2>
       <p>Start with a conversation.</p>
-      <a href="contact.html" class="btn-primary">Get in Touch</a>
+      <a href="contact.html" class="btn-primary">Request an Assessment</a>
     </div>
-    <div id="cta-apg" style="display:none;">
+    <div id="cta-apg">
       <h2>We've built portfolio governance at scale.</h2>
       <p>Let's talk about yours.</p>
-      <a href="contact.html" class="btn-primary">Get in Touch</a>
+      <a href="contact.html" class="btn-primary">Talk About Your Portfolio</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
+  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="tel:+18133347932">(813) 334-7932</a> &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
   <p style="margin-top:0.5rem; font-size:0.75rem;">Senior Led. Hands On. Enterprise Ready.</p>
 </footer>
 

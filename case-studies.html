@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="Real engagements and real outcomes from OnBizness Group. Case studies covering enterprise agile transformation, offshore platform innovation, and intelligent automation at major financial institutions.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Studies — OnBizness Group</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -190,6 +191,13 @@
     font-size: 0.875rem;
     color: var(--muted);
     font-weight: 500;
+  }
+  .case-outcome {
+    font-size: 0.8125rem;
+    color: var(--cyan);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    line-height: 1.5;
   }
   .case-toggle {
     width: 36px;
@@ -389,6 +397,30 @@
   }
 
 
+
+
+  /* CASE DIAGRAMS */
+  .case-diagram { margin: 2.5rem 0; }
+  .case-diagram img { width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid #DDE3EC; }
+  .case-diagram figcaption { font-size: 0.8125rem; color: #5A6E83; margin-top: 0.75rem; text-align: center; font-style: italic; }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    border-left: 4px solid var(--cyan);
+    background: var(--offwhite);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .pull-quote p {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    color: var(--navy);
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+  }
+
   /* ACCESSIBILITY */
   :focus-visible {
     outline: 2px solid var(--cyan);
@@ -481,6 +513,7 @@
           </div>
           <div class="case-title" role="heading" aria-level="2">Enterprise Agile Transformation and Portfolio Visibility at Scale</div>
           <div class="case-client">A major U.S. investment and financial services company</div>
+          <div class="case-outcome">700+ teams onboarded. Strategy connected to team-level execution across 6 domains and 250+ squads.</div>
         </div>
         <div class="case-toggle">
           <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -496,6 +529,10 @@
             <p>Teams had inconsistent Jira configurations, legacy data issues, and no established connection between their day-to-day work and the broader strategic priorities leadership needed to track. Without a structured hierarchy connecting stories, epics, and programs to enterprise themes and focus areas, leadership had no reliable visibility into whether the most important work was actually moving forward. The pre-work required to make the deployment meaningful was significant and had not yet been addressed.</p>
             <p>OnBizness Group brought the experience of having done this at scale, the consulting discipline to structure the effort properly from the outset, and the ability to coach and mentor internal teams throughout, building their capability alongside the deployment rather than simply executing tasks on their behalf.</p>
 
+            <figure class="case-diagram">
+              <img src="diagram-hierarchy.svg" alt="Work hierarchy diagram showing how stories and epics in Jira connect through sub-initiatives, initiatives, themes, and focus areas in Jira Align, with strategy cascading down and delivery rolling up.">
+              <figcaption>How team-level delivery connected to enterprise strategy across 700 teams and 6 domains.</figcaption>
+            </figure>
             <span class="case-section-label" style="margin-top:2rem; display:block;">The Work</span>
             <h3>Providing the strategic framework, preparation discipline, and consulting guidance to make the deployment succeed.</h3>
             <ul class="work-list">
@@ -534,6 +571,7 @@
             <span class="case-section-label">The Outcome</span>
             <h3>700 teams connected. Strategy visible from the boardroom to the backlog.</h3>
             <p>The engagement established a connected hierarchy from team-level delivery to enterprise priorities. Stories and epics managed in Jira were linked in Jira Align to higher-level sub-initiatives, initiatives, themes, and focus areas. This gave leadership visibility beyond individual epics, connecting delivery activity to the organization's broader strategic goals.</p>
+            <div class="pull-quote"><p>"Leadership gained visibility beyond individual epics, connecting delivery activity to the organization's broader strategic goals."</p></div>
             <p>OnBizness Group also provided ongoing Jira Align administration, coaching, and support for the user community throughout the engagement, ensuring adoption was sustained and that teams continued to realize value from the platform over time.</p>
 
             <div class="outcome-grid">
@@ -576,6 +614,7 @@
           </div>
           <div class="case-title" role="heading" aria-level="2">Inventing the Trust Layer That Made Offshore Tax Preparation Viable</div>
           <div class="case-client">A U.S. tax preparation outsourcing firm — engagement at inception of the service category</div>
+          <div class="case-outcome">Scaled from 1,500 returns in year one to over 20,000 annually within three years. Zero data security incidents.</div>
         </div>
         <div class="case-toggle">
           <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -590,6 +629,11 @@
             <p>The client had a compelling vision: offer offshore tax preparation outsourcing to U.S. accounting firms and CPAs struggling with heavy workloads during peak tax season. The concept addressed a real market need. But at the moment OnBizness Group was engaged, nothing was in place to support it. No technology. No process. No answers to the fundamental questions that would determine whether the idea was viable at all.</p>
             <p>The questions were serious and legitimate. How would sensitive client data including Social Security numbers and financial records be protected if tax preparation was happening offshore in India? Would the quality of work meet U.S. tax law standards? Would the service feel impersonal or opaque to accounting firm clients? How would work be tracked, communicated, and managed? How would consistency be maintained at scale?</p>
             <p>OnBizness Group was brought in at this exact moment, referred by a KPMG partner and IBM senior director who had direct knowledge of the firm's ability to bridge business strategy, technology architecture, and operational execution simultaneously. The mandate was not to build software. It was to figure out whether this could work, and if so, how.</p>
+
+            <figure class="case-diagram">
+              <img src="diagram-xpitax.svg" alt="Secure offshore tax preparation architecture showing client data held on United States infrastructure, encrypted remote terminal access to India, and blocked data transfer path with enforced controls including no file transfer, no screen capture, no printing.">
+              <figcaption>The security architecture that made offshore tax preparation viable for U.S. accounting firms.</figcaption>
+            </figure>
 
             <span class="case-section-label" style="margin-top:2rem;display:block;">The Work</span>
             <h3>Solving the core barrier first. Then building everything around it.</h3>
@@ -633,8 +677,8 @@
                 <div class="outcome-label">Data security incidents across two full seasons</div>
               </div>
               <div class="outcome-item">
-                <div class="outcome-num">New</div>
-                <div class="outcome-label">Service category created from inception</div>
+                <div class="outcome-num">2</div>
+                <div class="outcome-label">Tax seasons supported before handoff</div>
               </div>
             </div>
 
@@ -659,6 +703,7 @@
           </div>
           <div class="case-title" role="heading" aria-level="2">Intelligent Automation Assessment and Process Transformation</div>
           <div class="case-client">A Tier 1 global financial institution</div>
+          <div class="case-outcome">Documented improvements in quality, cycle time, and cost. Recommendations implemented by the client.</div>
           <p style="font-size:0.9rem;color:#5A6E83;line-height:1.75;margin-top:1rem;max-width:640px;">This engagement involved a full automation opportunity assessment across multiple business processes at one of the largest financial institutions in the United States. The work included current state process inventory, labor quantification, compliance risk identification, ROI modeling, and future state design. Recommendations were implemented with documented improvements in quality, cycle time, and cost. Full case study in development.</p>
         </div>
       </div>
@@ -678,7 +723,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
+  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="tel:+18133347932">(813) 334-7932</a> &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
   <p style="margin-top:0.5rem; font-size:0.75rem;">Senior Led. Hands On. Enterprise Ready.</p>
 </footer>
 
