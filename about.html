@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Learn about OnBizness Group, a minority-owned boutique consulting firm founded in 2000. 26 years of enterprise experience across financial services, technology, and professional services.">
+<meta name="description" content="Learn about OnBizness Group, a boutique consulting firm founded in 2000. 26 years of enterprise experience across financial services, technology, and professional services.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — OnBizness Group</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -104,16 +104,6 @@
   .client-sector { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.625rem; }
   .client-desc { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
 
-  /* DIVERSITY */
-  .diversity-section { background: var(--offwhite); padding: 4rem 2rem; border-top: 1px solid #DDE3EC; }
-  .diversity-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
-  .diversity-badge { background: var(--navy); border-radius: 8px; padding: 2rem; text-align: center; }
-  .diversity-badge-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem; }
-  .diversity-badge-title { font-family: var(--font-display); font-size: 1.25rem; color: var(--white); line-height: 1.3; }
-  .diversity-right h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--navy); margin-bottom: 1rem; line-height: 1.3; }
-  .diversity-right p { font-size: 0.9375rem; color: #3D5166; line-height: 1.8; margin-bottom: 1rem; }
-  .diversity-right p:last-child { margin-bottom: 0; }
-
   .cta-section { background: var(--steel); color: var(--white); text-align: center; padding: 5rem 2rem; }
   .cta-inner { max-width: 1100px; margin: 0 auto; }
   .cta-section h2 { font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--white); margin-bottom: 1rem; }
@@ -128,11 +118,10 @@
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .story-grid, .founder-grid, .diversity-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .story-grid, .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .engage-grid, .cap-grid, .clients-grid { grid-template-columns: 1fr; }
     section { padding: 3rem 1.25rem; }
     .page-header { padding: 3rem 1.25rem; }
-    .diversity-section { padding: 3rem 1.25rem; }
   }
 
   /* ACCESSIBILITY */
@@ -316,47 +305,27 @@
       <div class="client-card">
         <div class="client-name">Fidelity Investments</div>
         <div class="client-sector">Financial Services (Fortune 500)</div>
-        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Ongoing embedded advisory engagement spanning multiple phases. Initial scope covered enterprise agile transformation and portfolio management platform onboarding across one of the firm's core business units, supporting over 700 teams. Evolved into a broader trusted advisor role covering data analysis, leadership coaching, program delivery support, and operational readiness across the organization.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Capital One</div>
         <div class="client-sector">Financial Services (Fortune 500)</div>
-        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Implementation of an enterprise agile portfolio management platform across the Credit Card and Small Business units. Assessed portfolio agility against the Scaled Agile Framework, established common delivery metrics, and rolled the solution out across 25 portfolios and more than 600 agile teams. Accountable to the Chief Technology Officer of the US Card Customer Experience and Data Services unit.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Citi</div>
         <div class="client-sector">Financial Services (Global Tier 1 Bank)</div>
-        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Business process analysis and intelligent automation assessment across anti-money laundering model development and maintenance. Delivered a process redesign with a prioritized implementation roadmap, quantified opportunity sizing, and automation recommendations. Separately assessed the recruitment candidate experience and delivered a transformation roadmap covering sourcing, diverse recruitment, and digital partner enablement.</div>
       </div>
       <div class="client-card">
         <div class="client-name">PricewaterhouseCoopers</div>
         <div class="client-sector">Professional Services (Big 4)</div>
-        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Part of a PMO team supporting the U.S. deployment of a large-scale internal enterprise financial systems unification program built on SAP R/3 and SAP ECC. Maintained the master program plan across finance, IT, data, integrations, testing, change management, and deployment workstreams. Responsible for dependency tracking, critical path risk management, scope and change control, stakeholder management, and executive status reporting.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Xpitax</div>
         <div class="client-sector">Tax Outsourcing Services</div>
-        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Engaged at inception to design and build the platform and operational model that made offshore tax preparation viable for U.S. accounting firms. Scaled from launch to over 20,000 returns annually within three years.</div>
       </div>
       <div class="client-card">
         <div class="client-name">Masco Corporation</div>
         <div class="client-sector">Manufacturing (Fortune 500)</div>
-        <div class="client-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.65);line-height:1.65;margin-top:0.5rem;">Part of a PMO team supporting the simultaneous implementation of PeopleSoft and Oracle Financials. PeopleSoft scope covered payroll, HR data, and benefits. Oracle Financials scope covered general ledger, accounts payable, accounts receivable, inventory, purchasing, and order management. Provided both PMO support and functional expertise across both platforms.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIVERSITY -->
-<section class="diversity-section">
-  <div class="diversity-inner">
-    <div class="diversity-badge">
-      <div class="diversity-badge-label">Business Classification</div>
-      <div class="diversity-badge-title">Minority-Owned Business Enterprise</div>
-    </div>
-    <div class="diversity-right">
-      <h3>Committed to diversity in enterprise consulting.</h3>
-      <p>OnBizness Group is a certified Minority-Owned Business Enterprise. Organizations with supplier diversity or MBE procurement requirements can request our certification documentation directly. We are experienced working within vendor qualification processes and can support your procurement team through onboarding requirements. Contact us to discuss.</p>
     </div>
   </div>
 </section>
@@ -371,7 +340,7 @@
 </section>
 
 <footer>
-  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="tel:+18133347932">(813) 334-7932</a> &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a> &nbsp;·&nbsp; Minority-Owned Business</p>
+  <p>© 2026 OnBizness Group &nbsp;·&nbsp; Odessa, FL &nbsp;·&nbsp; <a href="tel:+18133347932">(813) 334-7932</a> &nbsp;·&nbsp; <a href="mailto:contact@onbiznessgroup.com">contact@onbiznessgroup.com</a></p>
   <p style="margin-top:0.5rem; font-size:0.75rem;">Senior Led. Hands On. Enterprise Ready.</p>
 </footer>
 
