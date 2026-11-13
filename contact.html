@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Schedule a discovery conversation with OnBizness Group or send a message. We respond within one business day.">
-<link rel="canonical" href="https://onbiznessgroup.com/contact.html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | OnBizness Group</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+<link rel="canonical" href="https://onbiznessgroup.com/contact">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OnBizness Group">
+<meta property="og:title" content="Contact | OnBizness Group">
+<meta property="og:description" content="Schedule a 30 minute conversation. No pitch, no pressure. Response within one business day.">
+<meta property="og:url" content="https://onbiznessgroup.com/contact">
+<meta name="twitter:card" content="summary">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -118,13 +125,13 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
+    <a href="/" class="logo"><img src="logo.png" alt="OnBizness Group"></a>
         <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta active">Get in Touch</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/case-studies">Case Studies</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact" class="nav-cta active">Get in Touch</a></li>
     </ul>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -133,11 +140,11 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="case-studies.html">Case Studies</a>
-  <a href="services.html">Services</a>
-  <a href="about.html">About</a>
-  <a href="contact.html" class="mobile-cta active">Get in Touch</a>
+  <a href="/">Home</a>
+  <a href="/case-studies">Case Studies</a>
+  <a href="/services">Services</a>
+  <a href="/about">About</a>
+  <a href="/contact" class="mobile-cta active">Get in Touch</a>
 </div>
 
 <section class="page-header" id="main-content">
@@ -155,7 +162,7 @@
       <div class="contact-label">Before We Talk</div>
       <h2 class="contact-title">What to expect from a discovery call.</h2>
       <p class="contact-body">A 30-minute conversation is enough time to understand your situation, ask the right questions, and determine whether there is a genuine fit. If there is, we will outline what an engagement could look like. If there is not, we will tell you honestly and point you in the right direction.</p>
-      <p style="font-size:0.875rem;color:#3D5166;line-height:1.7;margin-bottom:1.5rem;">Not ready to schedule yet? <a href="engagement-overview.html" target="_blank" style="color:var(--cyan);font-weight:600;text-decoration:none;">Download our one-page engagement overview</a> to share internally or review at your own pace.</p>
+      <p style="font-size:0.875rem;color:#3D5166;line-height:1.7;margin-bottom:1.5rem;">Not ready to schedule yet? <a href="/engagement-overview" target="_blank" style="color:var(--cyan);font-weight:600;text-decoration:none;">Download our one-page engagement overview</a> to share internally or review at your own pace.</p>
 
       <div class="contact-details">
         <div class="contact-detail">
@@ -221,7 +228,7 @@
           <h2 class="form-title">Prefer to send a message?</h2>
           <p class="form-sub">Fill out the form below and we will follow up within one business day.</p>
         </div>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
           <input type="hidden" name="form-name" value="contact">
           <p style="display:none;" aria-hidden="true"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="form-group">
